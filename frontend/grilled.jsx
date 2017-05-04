@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const preloadedState = {
       session: {
         currentUser: window.currentUser,
-        modalIsOpen: false,
-        formType: 'login',
-        searchResults: [],
       },
       errors: {},
     };

@@ -34,6 +34,17 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec', require: false
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
@@ -43,8 +54,7 @@ group :development do
   gem 'pry-rails'
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'guard'
-  gem 'guard-livereload',  :require => false
+  gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'annotate'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

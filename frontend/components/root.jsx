@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './app';
 import IndexContainer from './index/index_container';
 
@@ -13,19 +14,19 @@ const Root = ({ store }) => {
   };
   return (
     <Provider store={store}>
-      <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={IndexContainer} />
-        </Route>
+      <Router>
+        <App>
+          <Route exact path="/" component={IndexContainer} />
+        </App>
       </Router>
     </Provider>
   );
 };
 
 Root.propTypes = {
-  store: React.PropTypes.shape({
-    getStore: React.PropTypes.func,
-    dispatch: React.PropTypes.func,
+  store: PropTypes.shape({
+    getStore: PropTypes.func,
+    dispatch: PropTypes.func,
   }).isRequired,
 };
 
