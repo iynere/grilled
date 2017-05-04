@@ -7,7 +7,7 @@
     "test": "frontend/test"
   },
   "scripts": {
-    "test": "mocha frontend/test --compilers js:babel-register --require ./frontend/test/spec_helper.js --recursive --recursive"
+    "test": "mocha mocha_tests --compilers js:babel-register --require ./mocha_tests/spec_helper.js --recursive --recursive"
   },
   "author": "",
   "license": "ISC",

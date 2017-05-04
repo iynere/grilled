@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Index from '../components/index/index';
+import Index from '../frontend/components/index/index';
 
 describe('index', () => {
   it('renders an h1 with text hello', () => {
