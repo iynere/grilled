@@ -12,7 +12,8 @@ class AuthForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.loginGuest = this.loginGuest.bind(this);
+    this.loginGuy = this.loginGuy.bind(this);
+    this.loginHank = this.loginHank.bind(this);
     this.switchForm = this.switchForm.bind(this);
   }
 
@@ -38,9 +39,14 @@ class AuthForm extends React.Component {
   }
 
 
-  loginGuest() {
-    const guest = { username: 'guest', password: 'yoloswag' };
-    this.props.login(guest)
+  loginGuy() {
+    const guest = { username: '3DgUyF', password: 'yoloswag' };
+    this.props.login(guest);
+  }
+
+  loginHank() {
+    const guest = { username: 'h4nkGr1ll', password: 'yoloswag' };
+    this.props.login(guest);
   }
 
   otherAuth() {
@@ -80,11 +86,16 @@ class AuthForm extends React.Component {
       <div className="auth-form">
         <h3 className="form-header">{ this.props.formType === 'login' ? 'LOG IN TO ' : 'SIGN UP FOR ' }GRILLED</h3>
         <button
-          onClick={this.loginGuest}
-          className="margin-top-1rem btn btn-square btn-auth"
+          onClick={this.loginGuy}
+          className="margin-top-1rem btn btn-square"
         >
-          <i className="fa fa-user-circle-o" />
-          Guest Login
+          Login As Guy
+        </button>
+        <button
+          onClick={this.loginHank}
+          className="margin-top-1rem btn btn-square margin-left-half-rem"
+        >
+          Login As Hank
         </button>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
