@@ -110,12 +110,12 @@ class AuthForm extends React.Component {
               value={this.state.password}
             />
           </div>
-          <button className="btn btn-square">
+          <button className="btn btn-square margin-top-half-rem">
             {this.props.formType === 'login' ? 'Log In' : 'Sign Up'}
           </button>
         </form>
         <button
-          className="margin-top-1rem btn btn-square blue"
+          className="margin-top-1rem btn btn-square red"
           onClick={this.switchForm}
         >
           {this.otherAuth() === 'login' ? 'ALREADY HAVE AN ACCOUNT? SIGN IN HERE' : 'CREATE AN ACCOUNT'}

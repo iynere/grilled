@@ -4,7 +4,7 @@ const Header = ({ currentUser, logout }) => {
   const UserActions = () => (
     <nav>
       <span>{currentUser.username}</span>
-      <span className="header-action" onClick={logout}>Sign Out</span>
+      <button className="btn btn-square blue" onClick={logout}>Sign Out</button>
     </nav>
   );
   return (
