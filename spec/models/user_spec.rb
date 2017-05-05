@@ -16,7 +16,8 @@ describe User, type: :model do
   end
 
   describe 'associations' do
-    it { should have_many(:sent_conversations)}
-    it { should have_many(:received_conversations)}
+    it { should have_many(:sent_conversations) }
+    it { should have_many(:received_conversations) }
+    it { should have_many(:listings) }
   end
 end

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :conversation do
-    subject Faker::Hipster.sentence(3)
+    listing
     association :sender, factory: :user
     association :recipient, factory: :user
 

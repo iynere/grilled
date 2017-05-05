@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 describe Conversation, type: :model do
+  subject { create(:conversation) }
   describe 'validations' do
     context 'without offer' do
-      subject { create(:conversation) }
-      it{ should validate_presence_of(:subject) }
+      it{ should validate_presence_of(:listing) }
       it{ should validate_presence_of(:sender) }
       it{ should validate_presence_of(:recipient) }
     end
@@ -14,8 +14,8 @@ describe Conversation, type: :model do
     end
   end
   describe 'associations' do
-    subject { create(:conversation) }
     it{ should belong_to(:sender) }
     it{ should belong_to(:recipient) }
+    it{ should belong_to(:listing) }
   end
 end
