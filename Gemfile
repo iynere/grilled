@@ -38,11 +38,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard'
   gem 'guard-rspec', require: false
+  gem 'faker'
 end
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'faker'
   gem 'capybara'
   gem 'launchy'
 end
