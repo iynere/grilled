@@ -14,4 +14,8 @@ describe User, type: :model do
 
     it { should validate_presence_of(:password_digest)}
   end
+
+  describe 'associations' do
+    it { should belong_to(:conversations)}
+  end
 end
