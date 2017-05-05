@@ -14,8 +14,8 @@ describe Conversation, type: :model do
     end
   end
   describe 'associations' do
-    subject { create(:converation) }
-    it{ should have_one(:subject) }
-    it{ should have_one(:recipient) }
+    subject { create(:conversation) }
+    it{ should belong_to(:sender) }
+    it{ should belong_to(:recipient) }
   end
 end
