@@ -2,17 +2,19 @@ import React from 'react';
 
 const Header = ({ currentUser, logout }) => {
   const UserActions = () => (
-    <div>
+    <nav>
       <span>{currentUser.username}</span>
       <span className="header-action" onClick={logout}>Sign Out</span>
-    </div>
+    </nav>
   );
   return (
     <header>
-      <h5>GRILLED</h5>
-      <div>
+      <section className="logo">
+        <h1 >GRILLED</h1>
+      </section>
+      <section>
         { currentUser === null ? "High-End BBQ Marketplace" : UserActions() }
-      </div>
+      </section>
     </header>
 
   );

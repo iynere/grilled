@@ -39,8 +39,8 @@ class AuthForm extends React.Component {
 
 
   loginGuest() {
-    const guest = { username: 'guest', password: 'elierules' };
-    this.props.login(guest).then(this.props.toggleModal());
+    const guest = { username: 'guest', password: 'yoloswag' };
+    this.props.login(guest)
   }
 
   otherAuth() {
@@ -77,7 +77,7 @@ class AuthForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="auth-form">
         <h3 className="form-header">{ this.props.formType === 'login' ? 'LOG IN TO ' : 'SIGN UP FOR ' }GRILLED</h3>
         <button
           onClick={this.loginGuest}
@@ -115,7 +115,7 @@ class AuthForm extends React.Component {
           </button>
         </form>
         <button
-          className="margin-top-1rem text-lbl-btn"
+          className="margin-top-1rem btn btn-square blue"
           onClick={this.switchForm}
         >
           {this.otherAuth() === 'login' ? 'ALREADY HAVE AN ACCOUNT? SIGN IN HERE' : 'CREATE AN ACCOUNT'}
