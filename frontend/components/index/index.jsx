@@ -1,14 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import AuthForm from './auth_form_container';
 
-const Index = ({currentUser, errors, login, signup}) => {
+const Index = ({ currentUser }) => {
   if (currentUser !== null) {
     return (
       <h1>yolo</h1>
     );
   }
   return (
-    <h1>Hello</h1>
+    <AuthForm />
   );
+};
+
+Index.propTypes = {
+  currentUser: PropTypes.shape({
+    username: PropTypes.string,
+    id: PropTypes.number,
+  }),
+};
+
+Index.defaultProps = {
+  currentUser: null,
 };
 
 export default Index;
