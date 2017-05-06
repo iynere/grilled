@@ -89,13 +89,13 @@ class AuthForm extends React.Component {
           onClick={this.loginGuy}
           className="margin-top-1rem btn btn-square"
         >
-          Login As Guy
+          Log In As Guy
         </button>
         <button
           onClick={this.loginHank}
           className="margin-top-1rem btn btn-square margin-left-half-rem"
         >
-          Login As Hank
+          Log In As Hank
         </button>
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
