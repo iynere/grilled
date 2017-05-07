@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './app';
 import IndexContainer from './index/index_container';
+import ListingDetailContainer from './index/listings/listings_detail_container';
 
 const Root = ({ store }) => {
   const ensureLoggedIn = (nextState, replace) => {
@@ -17,6 +18,7 @@ const Root = ({ store }) => {
       <Router>
         <App>
           <Route exact path="/" component={IndexContainer} />
+          <Route path="/listings/:id" component={ListingDetailContainer} onEnter={ensureLoggedIn} />
         </App>
       </Router>
     </Provider>

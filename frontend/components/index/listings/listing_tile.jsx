@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const ListingTile = ({ listing }) => {
   if (listing === null) {
@@ -8,7 +9,7 @@ const ListingTile = ({ listing }) => {
     );
   }
   return (
-    <a className="listing-tile">
+    <Link to={`/listings/${listing.id}`} className="listing-tile">
       <section>
         <h4>
           {listing.name}
@@ -22,7 +23,7 @@ const ListingTile = ({ listing }) => {
           </strong>
         </div>
       </section>
-    </a>
+    </Link>
   );
 };
 
@@ -31,6 +32,7 @@ ListingTile.propTypes = {
     name: PropTypes.string,
     brand: PropTypes.string,
     price: PropTypes.integer,
+    id: PropTypes.integer,
   }),
 };
 

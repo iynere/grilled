@@ -19,13 +19,11 @@ export const clearListing = () => ({
 });
 
 export const fetchListings = () => dispatch => (
-  ApiListingUtil.fetchListings().then(
-    data => dispatch(receiveListings(data)),
-  )
+  ApiListingUtil.fetchListings()
+  .then(data => dispatch(receiveListings(data)))
 );
 
 export const fetchListing = id => dispatch => (
-  ApiListingUtil.fetchListing(id).then(
-    data => dispatch(receiveListing(data)),
-  )
+  ApiListingUtil.fetchListing(id)
+    .then(data => dispatch(receiveListing(data)))
 );
