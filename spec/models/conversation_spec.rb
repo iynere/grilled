@@ -7,6 +7,7 @@ describe Conversation, type: :model do
       it{ should validate_presence_of(:listing) }
       it{ should validate_presence_of(:sender) }
       it{ should validate_presence_of(:recipient) }
+      it{ should validate_uniqueness_of(:sender).scoped_to(:listing_id) }
     end
     context 'with offer' do
       subject { create(:conversation_with_offer) }
