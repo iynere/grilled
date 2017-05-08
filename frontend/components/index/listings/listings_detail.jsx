@@ -10,7 +10,7 @@ class ListingDetail extends React.Component {
     this.props.clearListing();
   }
   render() {
-    if (this.props.listing === null) return (<div className="loading">loading</div>);
+    if (this.props.listing === null) return (<div className="loading" />);
     return (
       <div>
         <section className="listingInfo">

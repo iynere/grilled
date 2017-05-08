@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const ListingTile = ({ listing }) => {
   if (listing === null) {
     return (
-      <div className="loading">loading</div>
+      <div className="loading" />
     );
   }
   return (
