@@ -4,6 +4,7 @@ import receiveErrors from './errors';
 export const RECEIVE_CONVERSATIONS = 'RECEIVE_CONVERSATIONS';
 export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
 export const RECEIVE_OFFER = 'RECEIVE_OFFER';
+export const SWITCH_BOX = 'SWITCH_BOX';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -18,6 +19,11 @@ const receiveConversation = conversation => ({
 const receiveOffer = offer => ({
   type: RECEIVE_OFFER,
   offer,
+});
+
+export const switchBox = box => ({
+  type: SWITCH_BOX,
+  box,
 });
 
 export const fetchConversations = () => dispatch => (

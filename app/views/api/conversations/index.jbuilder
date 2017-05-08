@@ -1,4 +1,4 @@
-json.array! @conversations do |conversation|
+@conversations.each do |conversation|
   json.set! conversation.id do
     json.extract! conversation, :id, :offer
     json.sender do
