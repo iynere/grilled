@@ -14,7 +14,7 @@ describe Api::ConversationsController, type: :controller do
       get :index, format: :json
     end
     it 'returns the correct number of converations associated with the current_user' do
-      expect(JSON.parse(response.body).count).to eq(received_by_user.count + sent_by_user.count)
+      expect(JSON.parse(response.body).size).to eq(received_by_user.count + sent_by_user.count)
     end
   end
   describe 'show' do
@@ -50,7 +50,7 @@ describe Api::ConversationsController, type: :controller do
       post :update, params: { id: conversation.id, conversation: { offer: new_offer } }
     end
     it 'updates the offer column with new amount' do
-      expect(response.body.to_i).to eq(new_offer)
+      expect(JSON.parse(response.body)["offer"].to_i).to eq(new_offer)
     end
   end
 end

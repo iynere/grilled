@@ -12,7 +12,9 @@ class Api::ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(conversation_params)
 
-    unless @conversation.save
+    if @conversation.save
+      render json: { offer: @conversation.offer, id: @conversation.id }, status: 200
+    else
       render json: @conversation.errors, status: 422
     end
   end
@@ -21,7 +23,7 @@ class Api::ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
 
     if @conversation.update(conversation_params)
-      render json: @conversation.offer, status: 200
+      render json: { offer: @conversation.offer, id: @conversation.id }, status: 200
     else
       render json: @conversation.errors, status: 422
     end

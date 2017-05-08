@@ -4,7 +4,7 @@ import { receiveErrors } from './errors';
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const SET_AUTH_FORM_TYPE = 'SET_AUTH_FORM_TYPE';
 
-export const receiveCurrentUser = currentUser => ({
+const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
   currentUser,
 });

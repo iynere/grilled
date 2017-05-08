@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import App from './app';
 import IndexContainer from './index/index_container';
 import ListingDetailContainer from './index/listings/listings_detail_container';
+import MailBoxContainer from './messaging/mailbox_container';
 
 const Root = ({ store }) => {
   const ensureLoggedIn = (nextState, replace) => {
@@ -19,6 +20,7 @@ const Root = ({ store }) => {
         <App>
           <Route exact path="/" component={IndexContainer} />
           <Route path="/listings/:id" component={ListingDetailContainer} onEnter={ensureLoggedIn} />
+          <Route path="/messages" component={MailBoxContainer} onEnter={ensureLoggedIn} />
         </App>
       </Router>
     </Provider>
