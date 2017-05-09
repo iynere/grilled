@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchListing, clearListing } from '../../../actions/listings';
+import { fetchListing, clearListing } from '../../actions/listings';
 import ListingsDetail from './listings_detail';
 
 const mapStateToProps = ({ listings, session }) => ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AuthForm from './auth_form_container';
-import Listings from './listings/listings_container';
+import Listings from '../listings/listings_container';
 
 const Index = ({ currentUser }) => {
   if (currentUser !== null) {
