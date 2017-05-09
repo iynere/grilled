@@ -9,16 +9,6 @@ class Api::ConversationsController < ApplicationController
     @conversation = Conversation.includes(:recipient, :sender, :listing).find(params[:id])
   end
 
-  def update
-    @conversation = Conversation.find(params[:id])
-
-    if @conversation.update(conversation_params)
-      render json: { offer: @conversation.offer, id: @conversation.id }, status: 200
-    else
-      render json: @conversation.errors, status: 422
-    end
-  end
-
   private
   def conversation_params
     params.require(:conversation).permit(:offer)

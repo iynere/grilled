@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :listings, only: [:index, :show]
-    resources :conversations, only: [:index, :show, :update]
+    resources :conversations, only: [:index, :show]
     resources :messages, only: :create
 
     resources :users, only: :create

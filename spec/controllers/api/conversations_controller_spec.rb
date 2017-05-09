@@ -26,14 +26,4 @@ describe Api::ConversationsController, type: :controller do
       expect(JSON.parse(response.body)["id"]).to eq(conversation.id)
     end
   end
-  # describe 'update' do
-  #   let!(:conversation) { create(:conversation_with_offer) }
-  #   let!(:new_offer) { Faker::Number.between(1, 24) }
-  #   before do
-  #     post :update, params: { id: conversation.id, conversation: { offer: new_offer } }
-  #   end
-  #   it 'updates the offer column with new amount' do
-  #     expect(JSON.parse(response.body)["offer"].to_i).to eq(new_offer)
-  #   end
-  # end
 end
