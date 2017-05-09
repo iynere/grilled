@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ConversationDetail from './conversation_detail_container';
 
 const ConversationTile = ({ conversation, displayUser, toggleConversation, active }) => {
   const user = conversation[displayUser].username;
@@ -25,11 +26,11 @@ const ConversationTile = ({ conversation, displayUser, toggleConversation, activ
   };
   return (
     <li>
-      <button onClick={() => toggleConversation(conversation.id)}>
+      <a onClick={() => toggleConversation(conversation.id)}>
         <span>{conversation.listing.name}</span>
         {tileContents()}
-      </button>
-      {active === conversation.id ? 'active' : null}
+      </a>
+      {active === conversation.id ? <ConversationDetail id={conversation.id} /> : null}
     </li>
   );
 };

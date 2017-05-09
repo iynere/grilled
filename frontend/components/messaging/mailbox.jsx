@@ -7,6 +7,24 @@ class MailBox extends React.Component {
   componentDidMount() {
     this.props.fetchConversations();
   }
+
+  // tiles() {
+  //   let conversations;
+  //   if (this.props.conversations.length > 0) {
+  //     const selection = this.props.box === 'sent' ? 'sender' : 'recipient';
+  //     const selectedConversations = filter(
+  //       this.props.conversations,
+  //       conv => conv[selection].id === this.props.currentUserId,
+  //     );
+  //     conversations = selectedConversations.map(
+  //       conv => <Tile key={conv.id} conversation={conv} />,
+  //     );
+  //   }
+  //   if (conversations.count > 0) return conversations;
+  //   return (
+  //     <li className="no-messages">No Messages to Display</li>
+  //   );
+  // }
   render() {
     if (this.props.conversations.length < 1) return (<div className="loading" />);
     let conversationDisplay;

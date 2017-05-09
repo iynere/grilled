@@ -9,7 +9,6 @@ import {
 
 const defaultConversations = {
   mailBox: {},
-  details: {},
   activeConversation: null,
   box: 'received',
 };
@@ -21,7 +20,7 @@ const ConversationsReducer = (state = defaultConversations, action) => {
       newState.mailBox = action.conversations;
       return newState;
     case RECEIVE_CONVERSATION:
-      newState.details = action.conversation;
+      newState.mailBox[action.conversation.id].messages = action.conversation.messages;
       return newState;
     case RECEIVE_OFFER:
       newState.mailBox[action.id].offer = action.offer;

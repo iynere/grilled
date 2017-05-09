@@ -6,7 +6,7 @@ class Api::ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.includes(:recipient, :sender, :listing).find(params[:id])
+    @conversation = Conversation.includes(:recipient, :sender, :messages).find(params[:id])
   end
 
   private

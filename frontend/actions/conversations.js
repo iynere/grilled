@@ -41,11 +41,3 @@ export const fetchConversation = id => dispatch => (
   ApiConversationUtil.fetchConversation(id)
     .then(data => dispatch(receiveConversation(data)))
 );
-
-// export const updateConversation = conversation => dispatch => (
-//   ApiConversationUtil.updateConversation(conversation)
-//   .then(
-//     offer => dispatch(receiveOffer(offer)),
-//     err => dispatch(receiveErrors(err)),
-//   )
-// );
