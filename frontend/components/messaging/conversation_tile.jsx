@@ -5,7 +5,7 @@ const ConversationTile = ({ conversation, displayUser, toggleConversation, activ
   const user = conversation[displayUser].username;
   const offerContent = () => (
     <section>
-      <span>Offer: ${25}</span>
+      <span>Offer: ${conversation.offer}</span>
       <button className="btn btn-square">Accept</button>
       <button className="btn btn-square">Counter</button>
     </section>
@@ -39,6 +39,7 @@ ConversationTile.propTypes = {
     listing: PropTypes.shape({
       name: PropTypes.string,
     }),
+    offer: PropTypes.number,
   }).isRequired,
   displayUser: PropTypes.string.isRequired,
   toggleConversation: PropTypes.func.isRequired,
