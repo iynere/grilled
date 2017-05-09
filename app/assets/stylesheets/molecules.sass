@@ -30,12 +30,15 @@
   ul
     width: 100%
     li
-      display: flex
-      justify-content: space-between
-      align-items: center
-      padding: 1rem
-      &:hover
-        background: $light-grey
+      & > button, div
+        display: flex
+      & > button
+        width: 100%
+        justify-content: space-between
+        align-items: center
+        padding: 1rem
+        &:hover
+          background: $light-grey
 
 .mailbox-header
   margin: 0 auto

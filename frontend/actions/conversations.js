@@ -5,6 +5,7 @@ export const RECEIVE_CONVERSATIONS = 'RECEIVE_CONVERSATIONS';
 export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
 export const RECEIVE_OFFER = 'RECEIVE_OFFER';
 export const SWITCH_BOX = 'SWITCH_BOX';
+export const TOGGLE_CONVERSATION = 'TOGGLE_CONVERSATION';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -24,6 +25,11 @@ const receiveOffer = offer => ({
 export const switchBox = box => ({
   type: SWITCH_BOX,
   box,
+});
+
+export const toggleConversation = id => ({
+  type: TOGGLE_CONVERSATION,
+  id,
 });
 
 export const fetchConversations = () => dispatch => (
