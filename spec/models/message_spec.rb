@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 describe Message, type: :model do
-  subject { create(:message) }
+  let(:conversation) { create(:conversation) }
+  subject { create(:message, conversation: conversation) }
   describe 'validations' do
     it { should validate_presence_of(:body) }
     it { should validate_presence_of(:user) }
