@@ -42,18 +42,10 @@ export const fetchConversation = id => dispatch => (
     .then(data => dispatch(receiveConversation(data)))
 );
 
-export const createConversation = conversation => dispatch => (
-  ApiConversationUtil.createConversation(conversation)
-    .then(
-      offer => dispatch(receiveOffer(offer)),
-      err => dispatch(receiveErrors(err)),
-    )
-);
-
-export const updateConversation = conversation => dispatch => (
-  ApiConversationUtil.updateConversation(conversation)
-  .then(
-    offer => dispatch(receiveOffer(offer)),
-    err => dispatch(receiveErrors(err)),
-  )
-);
+// export const updateConversation = conversation => dispatch => (
+//   ApiConversationUtil.updateConversation(conversation)
+//   .then(
+//     offer => dispatch(receiveOffer(offer)),
+//     err => dispatch(receiveErrors(err)),
+//   )
+// );

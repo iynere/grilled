@@ -67,7 +67,6 @@
   - actions
     - index: returns all conversations for currentUser.
     - show: returns all messages associated with a particular conversation.
-    - create: starts a new conversation between two users
     - update: only called when an offer or counter offer is made. Returns an error if listing is sold.
 - #### Api::MessagesController
   - actions

@@ -26,31 +26,14 @@ describe Api::ConversationsController, type: :controller do
       expect(JSON.parse(response.body)["id"]).to eq(conversation.id)
     end
   end
-  describe 'create' do
-    let!(:conversation) { build(:conversation) }
-    before do
-      post :create, params: { conversation:
-        {
-          sender_id: conversation.sender_id,
-          recipient_id: conversation.recipient_id,
-          listing_id: conversation.listing_id,
-        }
-      }
-    end
-    it 'creates a new Conversation in the database with those attributes' do
-      expect(Conversation.last.sender_id).to eq(conversation.sender_id)
-      expect(Conversation.last.recipient_id).to eq(conversation.recipient_id)
-      expect(Conversation.last.listing_id).to eq(conversation.listing_id)
-    end
-  end
-  describe 'update' do
-    let!(:conversation) { create(:conversation_with_offer) }
-    let!(:new_offer) { Faker::Number.between(1, 24) }
-    before do
-      post :update, params: { id: conversation.id, conversation: { offer: new_offer } }
-    end
-    it 'updates the offer column with new amount' do
-      expect(JSON.parse(response.body)["offer"].to_i).to eq(new_offer)
-    end
-  end
+  # describe 'update' do
+  #   let!(:conversation) { create(:conversation_with_offer) }
+  #   let!(:new_offer) { Faker::Number.between(1, 24) }
+  #   before do
+  #     post :update, params: { id: conversation.id, conversation: { offer: new_offer } }
+  #   end
+  #   it 'updates the offer column with new amount' do
+  #     expect(JSON.parse(response.body)["offer"].to_i).to eq(new_offer)
+  #   end
+  # end
 end
