@@ -56,8 +56,18 @@ describe Conversation, type: :model do
       end
     end
 
-    context 'without valid attributes'
-    
+    context 'with invalid attributes' do
+      let!(:conversation) { create(:conversation) }
+
+      before do
+        @conversation = Conversation.create_from_message(sender_id: conversation.sender_id, listing_id: conversation.listing_id, recipient_id: conversation.recipient_id)
+      end
+
+      it 'returns false' do
+        expect(@conversation).to be(false)
+      end
+    end
+
   end
   describe '#update_offer' do
     let(:conversation) { create(:conversation_with_offer) }
