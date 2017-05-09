@@ -22,6 +22,7 @@
 - #### messages
   - required
     - user_id, integer, index
+    - conversation_id, integer, index
     - content, string
 - #### listings
   - required
