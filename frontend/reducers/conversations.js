@@ -6,12 +6,14 @@ import {
         SWITCH_BOX,
         TOGGLE_CONVERSATION,
         RECEIVE_MESSAGE,
+        TOGGLE_MESSAGE_MODAL,
       } from '../actions/conversations';
 
 const defaultConversations = {
   mailBox: {},
   activeConversation: null,
   box: 'received',
+  modalOpen: false,
 };
 
 const ConversationsReducer = (state = defaultConversations, action) => {
@@ -28,6 +30,7 @@ const ConversationsReducer = (state = defaultConversations, action) => {
       return newState;
     case SWITCH_BOX:
       newState.box = action.box;
+      newState.activeConversation = null;
       return newState;
     case RECEIVE_MESSAGE:
       newState.mailBox[action.message.conversation_id].messages.push(action.message);
@@ -38,6 +41,9 @@ const ConversationsReducer = (state = defaultConversations, action) => {
       // } else {
       newState.activeConversation = action.id;
       // }
+      return newState;
+    case TOGGLE_MESSAGE_MODAL:
+      newState.modalOpen = !state.modalOpen;
       return newState;
     default:
       return newState;

@@ -7,6 +7,9 @@ class MailBox extends React.Component {
   componentDidMount() {
     this.props.fetchConversations();
   }
+  componentWillUnmount() {
+    this.props.closeConversation();
+  }
 
   // tiles() {
   //   let conversations;
@@ -69,6 +72,7 @@ MailBox.propTypes = {
   box: PropTypes.string.isRequired,
   currentUserId: PropTypes.number.isRequired,
   conversations: PropTypes.arrayOf(PropTypes.object).isRequired,
+  closeConversation: PropTypes.func.isRequired,
 };
 
 export default MailBox;

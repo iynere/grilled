@@ -7,6 +7,7 @@ export const RECEIVE_OFFER = 'RECEIVE_OFFER';
 export const SWITCH_BOX = 'SWITCH_BOX';
 export const TOGGLE_CONVERSATION = 'TOGGLE_CONVERSATION';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+export const TOGGLE_MESSAGE_MODAL = 'TOGGLE_MESSAGE_MODAL';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -36,6 +37,10 @@ export const toggleConversation = id => ({
 export const receiveMessage = message => ({
   type: RECEIVE_MESSAGE,
   message,
+});
+
+export const toggleMessageModal = () => ({
+  type: TOGGLE_MESSAGE_MODAL,
 });
 
 export const fetchConversations = () => dispatch => (
