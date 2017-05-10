@@ -10,6 +10,28 @@ class ListingDetail extends React.Component {
   componentWillUnmount() {
     this.props.clearListing();
   }
+
+  renderButtons() {
+    if (this.props.listing.user_id === this.props.currentUserId) return null;
+    return (
+      <section className="listingButtons">
+        <button className="btn btn-square">buy now</button>
+        <button
+          onClick={this.props.toggleMessageModal}
+          className="btn btn-square"
+        >
+            make offer
+        </button>
+        <button
+          onClick={this.props.toggleMessageModal}
+          className="btn btn-square"
+        >
+          message seller
+        </button>
+      </section>
+    );
+  }
+
   render() {
     if (this.props.listing === null) return (<div className="loading" />);
     return (
@@ -22,16 +44,7 @@ class ListingDetail extends React.Component {
             {this.props.listing.description}
           </p>
         </section>
-        <section className="listingButtons">
-          <button className="btn btn-square">buy now</button>
-          <button
-            onClick={this.props.toggleMessageModal}
-            className="btn btn-square"
-          >
-              make offer
-          </button>
-          <button className="btn btn-square">message seller</button>
-        </section>
+        {this.renderButtons()}
         <span>Sold by {this.props.listing.username}</span>
         <MessageForm listingId={this.props.listing.id} />
       </div>
@@ -46,11 +59,13 @@ ListingDetail.propTypes = {
     price: PropTypes.number,
     description: PropTypes.string,
     username: PropTypes.string,
+    user_id: PropTypes.number,
     id: PropTypes.number,
   }),
   fetchListing: PropTypes.func.isRequired,
   clearListing: PropTypes.func.isRequired,
   toggleMessageModal: PropTypes.func.isRequired,
+  currentUserId: PropTypes.number.isRequired,
 };
 
 ListingDetail.defaultProps = {
