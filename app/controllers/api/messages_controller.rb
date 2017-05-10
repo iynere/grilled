@@ -10,8 +10,8 @@ class Api::MessagesController < ApplicationController
   end
 
   private
-  
+
   def message_params
-    params.require(:message).permit(:body, :listing_id, :user_id, :offer)
+    params.require(:message).permit(:body, :listing_id, :user_id, :offer, :conversation_id)
   end
 end

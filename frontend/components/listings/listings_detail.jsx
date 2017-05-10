@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MessageForm from '../messaging/message_form_container';
 
 class ListingDetail extends React.Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class ListingDetail extends React.Component {
           <button className="btn btn-square">message seller</button>
         </section>
         <span>Sold by {this.props.listing.username}</span>
+        <MessageForm listingId={this.props.listing.id} />
       </div>
     );
   }
@@ -39,6 +41,7 @@ ListingDetail.propTypes = {
     price: PropTypes.number,
     description: PropTypes.string,
     username: PropTypes.string,
+    id: PropTypes.number,
   }),
   fetchListing: PropTypes.func.isRequired,
   clearListing: PropTypes.func.isRequired,

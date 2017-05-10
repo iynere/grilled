@@ -6,6 +6,7 @@ export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
 export const RECEIVE_OFFER = 'RECEIVE_OFFER';
 export const SWITCH_BOX = 'SWITCH_BOX';
 export const TOGGLE_CONVERSATION = 'TOGGLE_CONVERSATION';
+export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -32,6 +33,11 @@ export const toggleConversation = id => ({
   id,
 });
 
+export const receiveMessage = message => ({
+  type: RECEIVE_MESSAGE,
+  message,
+});
+
 export const fetchConversations = () => dispatch => (
   ApiConversationUtil.fetchConversations()
     .then(data => dispatch(receiveConversations(data)))
@@ -45,7 +51,7 @@ export const fetchConversation = id => dispatch => (
 export const createMessage = message => dispatch => (
   ApiConversationUtil.createMessage(message)
     .then(
-      data => dispatch(receiveConversation(data)),
+      data => dispatch(receiveMessage(data)),
       err => dispatch(receiveErrors(err)),
     )
 );

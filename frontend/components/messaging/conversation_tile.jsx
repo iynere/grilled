@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ConversationDetail from './conversation_detail_container';
+import MessageForm from './message_form_container';
 
 const ConversationTile = ({ conversation, displayUser, toggleConversation, active }) => {
   const user = conversation[displayUser].username;
@@ -17,6 +18,10 @@ const ConversationTile = ({ conversation, displayUser, toggleConversation, activ
         <div>
           {conversation.offer > 0 ? offerContent() : null}
           <button className="btn btn-square">REPLY</button>
+          <MessageForm
+            conversationId={conversation.id}
+            listingId={conversation.listing.id}
+          />
         </div>
       );
     }

@@ -5,6 +5,7 @@ import {
         RECEIVE_OFFER,
         SWITCH_BOX,
         TOGGLE_CONVERSATION,
+        RECEIVE_MESSAGE,
       } from '../actions/conversations';
 
 const defaultConversations = {
@@ -28,12 +29,15 @@ const ConversationsReducer = (state = defaultConversations, action) => {
     case SWITCH_BOX:
       newState.box = action.box;
       return newState;
+    case RECEIVE_MESSAGE:
+      newState.mailBox[action.message.conversation_id].messages.push(action.message);
+      return newState;
     case TOGGLE_CONVERSATION:
-      if (action.id === newState.activeConversation) {
-        newState.activeConversation = null;
-      } else {
-        newState.activeConversation = action.id;
-      }
+      // if (action.id === newState.activeConversation) {
+      //   newState.activeConversation = null;
+      // } else {
+      newState.activeConversation = action.id;
+      // }
       return newState;
     default:
       return newState;

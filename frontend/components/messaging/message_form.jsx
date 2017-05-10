@@ -28,6 +28,10 @@ class MessageForm extends React.Component {
     if (this.state.offer !== null) {
       message.offer = this.state.offer;
     }
+    if (this.props.conversationId) {
+      message.conversation_id = this.props.conversationId;
+    }
+    this.props.createMessage(message);
   }
 
   render() {
@@ -58,6 +62,12 @@ MessageForm.propTypes = {
   }).isRequired,
   listingId: PropTypes.number.isRequired,
   currentUserId: PropTypes.number.isRequired,
+  createMessage: PropTypes.func.isRequired,
+  conversationId: PropTypes.number,
+};
+
+MessageForm.defaultProps = {
+  conversationId: null,
 };
 
 export default MessageForm;
