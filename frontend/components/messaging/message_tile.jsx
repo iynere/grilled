@@ -14,7 +14,11 @@ const MessageTile = ({ age, body, user }) => {
 MessageTile.propTypes = {
   user: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  age: PropTypes.string.isRequired,
+  age: PropTypes.string,
+};
+
+MessageTile.defaultProps = {
+  age: 'A few moments',
 };
 
 export default MessageTile;

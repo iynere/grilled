@@ -26,19 +26,27 @@
 .mailbox
   width: 70%
   border: .1rem $grey solid
-  background: lighten($light-grey, 20%)
+  background: $white
   ul
     width: 100%
     li
       & > a, div
         display: flex
       & > a
-        width: 100%
         justify-content: space-between
         align-items: center
         padding: 1rem
         &:hover
           background: $light-grey
+  .messages
+    border-color: $blue
+    border-bottom: .1rem solid
+    li
+      display: flex
+      align-items: center
+      justify-content: space-between
+      padding: 1rem
+      border-top: .1rem solid
 
 .mailbox-header
   margin: 0 auto

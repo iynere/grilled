@@ -2,6 +2,15 @@
 :fire::fire::fire::fire::fire::fire:
 ### Luxury BBQ Marketplace
 
+## TODO
+
+- move ajax loading into state
+- front end for offers
+- tests for frontend
+- action cable setup
+- unread count
+- cleanup scaffolding leftovers
+
 ## Rails :fire: Back End
 
 ### Tables

@@ -12,7 +12,7 @@ class ConversationDetail extends React.Component {
     const messageTiles = this.props.messages
       .map(message => <MessageTile key={message.id} age={message.age} body={message.body} user={'user'} />);
     return (
-      <ul>
+      <ul className="messages">
         {messageTiles}
       </ul>
     );
