@@ -25,22 +25,29 @@
 
 .mailbox
   width: 70%
-  border: .1rem $grey solid
   background: $white
-  ul
+  > ul
     width: 100%
-    li
-      & > a, div
+    .conversation
+      cursor: pointer
+      border: .1rem solid $ink
+      border-top: none
+      &:first-child
+        border-top: .1rem solid $ink
+      &.active
+        background: $light-grey
+      & > div, div[role="button"]
         display: flex
-      & > a
+      & > div
         justify-content: space-between
         align-items: center
         padding: 1rem
         &:hover
           background: $light-grey
   .messages
+    cursor: text
     border-color: $blue
-    border-bottom: .1rem solid
+    background: $white
     li
       display: flex
       align-items: center
@@ -52,13 +59,13 @@
   margin: 0 auto
   display: flex
   height: 2.5rem
+  border: .125rem $ink solid
   button
     width: 50%
     color: $white
-    border-bottom: .1rem $grey solid
     background: $light-grey
     &:first-child
-      border-right: .1rem $grey solid
+      border-right: .1rem $ink solid
     &.active, &:hover
       background: $grey
 
@@ -107,3 +114,28 @@
   width: 3rem
   height: 3rem
   animation: spin 2s linear infinite
+
+//message modal
+.messageModal
+  position: fixed
+  top: 0px
+  left: 0px
+  right: 0px
+  bottom: 0px
+  background-color: rgba(0, 0, 0, 0.65)
+  z-index: 15
+  section
+    border: .2rem $ink solid
+    z-index: 16
+    position: absolute
+    top: 1rem
+    background: $white
+    width: 320px
+    min-height: 280px
+    left: calc(50vw - 160px)
+    form
+      text-align: right
+    .form-group
+      text-align: left
+      margin: .5rem
+      display: block

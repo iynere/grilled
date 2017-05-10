@@ -57,7 +57,7 @@ class MailBox extends React.Component {
             Received
           </button>
         </header>
-        <ul>
+        <ul className="margin-top-1rem">
           {conversationDisplay.length > 0 ? conversationDisplay : 'No Messages to Display'}
         </ul>
       </div>

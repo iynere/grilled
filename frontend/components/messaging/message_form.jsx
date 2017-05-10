@@ -12,6 +12,12 @@ class MessageForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    if (this.props.modalOpen) {
+      this.props.toggleMessageModal();
+    }
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value,
@@ -31,28 +37,47 @@ class MessageForm extends React.Component {
     if (this.props.conversationId) {
       message.conversation_id = this.props.conversationId;
     }
-    this.props.createMessage(message);
+    this.props.createMessage(message).then(
+      () => this.props.toggleMessageModal(),
+    );
   }
 
   render() {
-    return (
-      <div>
-        <button>X</button>
-        <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <Errors errorsArray={this.props.errors.body} />
-            <input
-              placeholder="Write your message here...."
-              className=""
-              onChange={this.update('body')}
-              type="text"
-              id="body"
-            />
-            <button className="btn btn-square">send</button>
-          </div>
-        </form>
-      </div>
-    );
+    if (this.props.modalOpen) {
+      return (
+        <div className="messageModal">
+          <section>
+            <button
+              className="btn btn-square margin-left-half-rem margin-top-half-rem"
+              onClick={this.props.toggleMessageModal}
+            >
+              X
+            </button>
+            <form className="margin-top-1rem" onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <Errors errorsArray={this.props.errors.body} />
+                <label htmlFor="body">
+                  Write a message here
+                </label>
+                <input
+                  placeholder="How's the burn?"
+                  className=""
+                  onChange={this.update('body')}
+                  type="text"
+                  id="body"
+                />
+              </div>
+              <button
+                className="btn btn-square margin-right-half-rem"
+              >
+                send
+              </button>
+            </form>
+          </section>
+        </div>
+      );
+    }
+    return null;
   }
 }
 
@@ -64,6 +89,8 @@ MessageForm.propTypes = {
   currentUserId: PropTypes.number.isRequired,
   createMessage: PropTypes.func.isRequired,
   conversationId: PropTypes.number,
+  toggleMessageModal: PropTypes.func.isRequired,
+  modalOpen: PropTypes.bool.isRequired,
 };
 
 MessageForm.defaultProps = {

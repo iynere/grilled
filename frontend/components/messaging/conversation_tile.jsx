@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ConversationDetail from './conversation_detail_container';
 import MessageForm from './message_form_container';
 
-const ConversationTile = ({ conversation, displayUser, toggleConversation, active }) => {
+const ConversationTile = ({ conversation, displayUser, toggleConversation, active, toggleMessageModal }) => {
   const user = conversation[displayUser].username;
   const offerContent = () => (
     <section>
@@ -17,7 +17,7 @@ const ConversationTile = ({ conversation, displayUser, toggleConversation, activ
       return (
         <div>
           {conversation.offer > 0 ? offerContent() : null}
-          <button className="btn btn-square">REPLY</button>
+          <button onClick={toggleMessageModal} className="btn btn-square">REPLY</button>
           <MessageForm
             conversationId={conversation.id}
             listingId={conversation.listing.id}
@@ -30,11 +30,11 @@ const ConversationTile = ({ conversation, displayUser, toggleConversation, activ
     );
   };
   return (
-    <li>
-      <a onClick={() => toggleConversation(conversation.id)}>
+    <li className={active === conversation.id ? 'conversation active' : 'conversation'}>
+      <div role="button" onClick={() => toggleConversation(conversation.id)}>
         <span>{conversation.listing.name}</span>
         {tileContents()}
-      </a>
+      </div>
       {active === conversation.id ? <ConversationDetail id={conversation.id} /> : null}
     </li>
   );
@@ -50,6 +50,7 @@ ConversationTile.propTypes = {
   displayUser: PropTypes.string.isRequired,
   toggleConversation: PropTypes.func.isRequired,
   active: PropTypes.number,
+  toggleMessageModal: PropTypes.func.isRequired,
 };
 
 ConversationTile.defaultProps = {

@@ -24,7 +24,12 @@ class ListingDetail extends React.Component {
         </section>
         <section className="listingButtons">
           <button className="btn btn-square">buy now</button>
-          <button className="btn btn-square">make offer</button>
+          <button
+            onClick={this.props.toggleMessageModal}
+            className="btn btn-square"
+          >
+              make offer
+          </button>
           <button className="btn btn-square">message seller</button>
         </section>
         <span>Sold by {this.props.listing.username}</span>
@@ -45,6 +50,7 @@ ListingDetail.propTypes = {
   }),
   fetchListing: PropTypes.func.isRequired,
   clearListing: PropTypes.func.isRequired,
+  toggleMessageModal: PropTypes.func.isRequired,
 };
 
 ListingDetail.defaultProps = {
