@@ -93,12 +93,10 @@
     - #### conversations
       - RECEIVE_CONVERSATIONS
       - RECEIVE_CONVERSATION
+      - RECEIVE_MESSAGE
+      - TOGGLE_CONVERSATION
       - fetchConversations
       - fetchConversation
-      - createConversation
-      - updateConversation
-    - #### messages
-      - RECEIVE_MESSAGE
       - createMessage
     - #### errors
       - RECEIVE_ERRORS
@@ -106,13 +104,12 @@
   - ### components
     - #### index
       - ##### AuthForm
-      - ##### Listings
+    - #### Listings
     - #### header
     - #### messaging
       - ##### mailBox
       - ##### messageForm
       - ##### message
-      - ##### conversationForm
       - ##### conversationDetail
 
 
