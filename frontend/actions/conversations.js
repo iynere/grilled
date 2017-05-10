@@ -41,3 +41,11 @@ export const fetchConversation = id => dispatch => (
   ApiConversationUtil.fetchConversation(id)
     .then(data => dispatch(receiveConversation(data)))
 );
+
+export const createMessage = message => dispatch => (
+  ApiConversationUtil.createMessage(message)
+    .then(
+      data => dispatch(receiveConversation(data)),
+      err => dispatch(receiveErrors(err)),
+    )
+);

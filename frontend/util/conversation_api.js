@@ -10,10 +10,11 @@ export const fetchConversation = id => (
   })
 );
 
-// export const updateConversation = conversation => (
-//   $.ajax({
-//     url: `/api/conversations/${conversation.id}`,
-//     method: 'POST',
-//     data: { conversation },
-//   })
-// );
+export const createMessage = message => (
+  $.ajax({
+    url: '/api/messages/',
+    method: 'POST',
+    data: { message },
+    dataType: 'JSON',
+  })
+);

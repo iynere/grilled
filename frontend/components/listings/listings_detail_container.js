@@ -12,7 +12,6 @@ const mapDispatchToProps = (dispatch, { match }) => {
   return ({
     fetchListing: () => dispatch(fetchListing(listingId)),
     clearListing: () => dispatch(clearListing()),
-    listingId,
   });
 };
 
