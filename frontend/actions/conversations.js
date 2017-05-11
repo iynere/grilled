@@ -3,12 +3,12 @@ import receiveErrors from './errors';
 
 export const RECEIVE_CONVERSATIONS = 'RECEIVE_CONVERSATIONS';
 export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
-export const RECEIVE_OFFER = 'RECEIVE_OFFER';
 export const SWITCH_BOX = 'SWITCH_BOX';
 export const TOGGLE_CONVERSATION = 'TOGGLE_CONVERSATION';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const TOGGLE_MESSAGE_MODAL = 'TOGGLE_MESSAGE_MODAL';
 export const RECEIVE_MESSAGE_SUCCESS = 'RECEIVE_MESSAGE_SUCCESS';
+export const CLEAR_MESSAGE_SUCCESS = 'CLEAR_MESSAGE_SUCCESS';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -18,11 +18,6 @@ const receiveConversations = conversations => ({
 const receiveConversation = conversation => ({
   type: RECEIVE_CONVERSATION,
   conversation,
-});
-
-const receiveOffer = offer => ({
-  type: RECEIVE_OFFER,
-  offer,
 });
 
 export const switchBox = box => ({
@@ -44,6 +39,10 @@ export const receiveMessageSuccess = () => ({
   type: RECEIVE_MESSAGE_SUCCESS,
 });
 
+export const clearMessageSuccess = () => ({
+  type: CLEAR_MESSAGE_SUCCESS,
+});
+
 export const toggleMessageModal = () => ({
   type: TOGGLE_MESSAGE_MODAL,
 });
@@ -61,7 +60,7 @@ export const fetchConversation = id => dispatch => (
 export const createMessage = (message, fromListing) => dispatch => (
   ApiConversationUtil.createMessage(message)
     .then(
-      data => dispatch(fromListing ? receiveMessageSuccess : receiveMessage(data)),
+      data => dispatch(fromListing ? receiveMessageSuccess() : receiveMessage(data)),
       err => dispatch(receiveErrors(err)),
     )
 );

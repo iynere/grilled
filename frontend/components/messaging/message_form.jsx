@@ -37,7 +37,7 @@ class MessageForm extends React.Component {
       message.conversation_id = this.props.conversationId;
     }
     this.props.createMessage(message, this.props.fromListing).then(
-      () => this.props.toggleMessageModal(),
+      () => { if (!this.props.messageSuccess) this.props.toggleMessageModal(); },
     );
   }
 
@@ -47,31 +47,47 @@ class MessageForm extends React.Component {
         <div className="messageModal">
           <section>
             <button
-              className="btn btn-square margin-left-half-rem margin-top-half-rem"
+              className="btn btn-square margin-right-half-rem margin-top-half-rem"
               onClick={this.props.toggleMessageModal}
             >
               X
             </button>
-            <form className="margin-top-1rem" onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <Errors errorsArray={this.props.errors.body} />
-                <label htmlFor="body">
-                  Write a message here
-                </label>
-                <input
-                  placeholder="How's the burn?"
-                  className=""
-                  onChange={this.update('body')}
-                  type="text"
-                  id="body"
-                />
-              </div>
-              <button
-                className="btn btn-square margin-right-half-rem"
-              >
-                send
-              </button>
-            </form>
+            {
+              this.props.messageSuccess ?
+                (
+                  <div className="message-success">
+                    <h3>Message Sent</h3>
+                    <button
+                      className="btn btn-square margin-top-1rem"
+                      onClick={this.props.toggleMessageModal}
+                    >
+                      ok
+                    </button>
+                  </div>
+                ) :
+                (
+                  <form className="margin-top-1rem" onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                      <Errors errorsArray={this.props.errors.body} />
+                      <label htmlFor="body">
+                        Write a message here
+                      </label>
+                      <input
+                        placeholder="How's the burn?"
+                        className=""
+                        onChange={this.update('body')}
+                        type="text"
+                        id="body"
+                      />
+                    </div>
+                    <button
+                      className="btn btn-square margin-right-half-rem"
+                    >
+                      send
+                    </button>
+                  </form>
+                )
+            }
           </section>
         </div>
       );
@@ -90,6 +106,7 @@ MessageForm.propTypes = {
   toggleMessageModal: PropTypes.func.isRequired,
   modalOpen: PropTypes.bool.isRequired,
   fromListing: PropTypes.bool,
+  messageSuccess: PropTypes.bool.isRequired,
 };
 
 MessageForm.defaultProps = {

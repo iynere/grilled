@@ -7,6 +7,8 @@ import {
         TOGGLE_CONVERSATION,
         RECEIVE_MESSAGE,
         TOGGLE_MESSAGE_MODAL,
+        RECEIVE_MESSAGE_SUCCESS,
+        CLEAR_MESSAGE_SUCCESS,
       } from '../actions/conversations';
 
 const defaultConversations = {
@@ -14,6 +16,7 @@ const defaultConversations = {
   activeConversation: null,
   box: 'received',
   modalOpen: false,
+  messageSuccess: false,
 };
 
 const ConversationsReducer = (state = defaultConversations, action) => {
@@ -44,6 +47,13 @@ const ConversationsReducer = (state = defaultConversations, action) => {
       return newState;
     case TOGGLE_MESSAGE_MODAL:
       newState.modalOpen = !state.modalOpen;
+      newState.messageSuccess = false;
+      return newState;
+    case RECEIVE_MESSAGE_SUCCESS:
+      newState.messageSuccess = true;
+      return newState;
+    case CLEAR_MESSAGE_SUCCESS:
+      newState.messageSuccess = false;
       return newState;
     default:
       return newState;

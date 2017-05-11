@@ -5,6 +5,7 @@ import MessageForm from './message_form';
 const mapStateToProps = ({ errors, conversations }) => ({
   errors,
   modalOpen: conversations.modalOpen,
+  messageSuccess: conversations.messageSuccess,
 });
 
 const mapDispatchToProps = dispatch => ({
