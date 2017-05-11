@@ -14,7 +14,7 @@ class ListingDetail extends React.Component {
   renderButtons() {
     if (this.props.listing.user_id === this.props.currentUserId) return null;
     return (
-      <section className="listingButtons">
+      <section className="listing-buttons margin-top-1rem">
         <button
           onClick={this.props.openOfferModal}
           className="btn btn-square"
@@ -34,12 +34,12 @@ class ListingDetail extends React.Component {
   render() {
     if (this.props.listing === null) return (<div className="loading" />);
     return (
-      <div>
-        <section className="listingInfo">
+      <div className="listing">
+        <section className="listing-info">
           <h1>{this.props.listing.name}</h1>
           <h3>{this.props.listing.brand}</h3>
-          <h3>{this.props.listing.price}</h3>
-          <p>
+          <h3>${this.props.listing.price}</h3>
+          <p className="margin-top-1rem">
             {this.props.listing.description}
           </p>
         </section>

@@ -30,12 +30,11 @@
     width: 100%
     .conversation
       cursor: pointer
-      border: .1rem solid $ink
-      border-top: none
-      &:first-child
-        border-top: .1rem solid $ink
+      margin: 1rem auto
+      border: 1px solid $ink
+      box-shadow: 1px 1px 3px $grey, 2px 2px $grey
       &.active
-        background: $light-grey
+        background: darken($white, 10%)
       & > div, div[role="button"]
         display: flex
       & > div
@@ -43,7 +42,8 @@
         align-items: center
         padding: 1rem
         &:hover
-          background: $light-grey
+          background: darken($white, 10%)
+          box-shadow: 2px 2px 3px $red, 3px 3px 2px $brown
   .messages
     cursor: text
     border-color: $blue
@@ -61,16 +61,17 @@
   margin: 0 auto
   display: flex
   height: 2.5rem
-  border: .125rem $ink solid
+  border: 1px $ink solid
   justify-content: flex-end
+  box-shadow: 1px 1px 3px $grey, 2px 2px $grey
   button
     width: 50%
-    color: $white
-    background: $light-grey
+    color: $ink
+    background: $white
     &:first-child
       border-right: .1rem $ink solid
     &.active, &:hover
-      background: $grey
+      background: darken($white, 10%)
 
 
 
@@ -79,8 +80,12 @@
 
 //typography
 .logo
-  text-shadow: 1px 0 0 $blue, 2px 0 0 $red, 3px 0 0 $red
+  color: $ink
+  text-shadow: 1px 0 0 $grey, 2px 0 0 $red, 3px 0 0 $red
   margin-left: 33%
+  transition: text-shadow ease .5s
+  &:hover
+    text-shadow: -1px 0 1px $grey, 1px 0 2px $red, 3px 0 0 $red
 
 //forms
 
@@ -95,6 +100,7 @@
   background: $white
   border: .2rem $ink solid
   width: calc( 25% - 2.4rem )
+  min-height: 4rem
   margin: .5rem
   box-shadow: 1px 1px $blue, 2px 2px $grey, 3px 3px $grey, 4px 4px $grey, 5px 5px $grey
   &:hover
@@ -106,6 +112,17 @@
     display: flex
     justify-content: space-between
 
+//listing
+.listing
+  border: .1rem $ink solid
+  box-shadow: 1px 1px $blue, 2px 2px $grey, 3px 3px $grey, 4px 4px $grey, 5px 5px $red
+  padding: 2rem
+  width: 320px
+  .listing-buttons
+    display: flex
+    flex-direction: column
+    button
+      margin-bottom: 1rem
 
 //loading spinner
 .loading
@@ -135,7 +152,7 @@
     top: 1rem
     background: $white
     width: 320px
-    min-height: 280px
+    min-height: 230px
     left: calc(50vw - 160px)
     display: flex
     flex-direction: column

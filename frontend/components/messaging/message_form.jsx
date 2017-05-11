@@ -79,6 +79,7 @@ class MessageForm extends React.Component {
                           <input
                             id="offer"
                             onChange={this.update('offer')}
+                            className="margin-left-half-rem"
                             type="number"
                           />
                         </div>
