@@ -20,6 +20,7 @@ describe Api::ConversationsController, type: :controller do
   describe 'show' do
     let!(:conversation) { create(:conversation) }
     before do
+      allow(controller).to receive(:current_user) { User }
       get :show, params: { id: conversation.id }, format: :json
     end
     it 'returns the correct conversation' do
