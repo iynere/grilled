@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { filter } from 'lodash';
 import Tile from './conversation_tile_container';
 
 class MailBox extends React.Component {
@@ -30,17 +29,12 @@ class MailBox extends React.Component {
   // }
   render() {
     if (this.props.conversations.length < 1) return (<div className="loading" />);
-    let conversationDisplay;
-    if (this.props.conversations.length > 0) {
-      const selection = this.props.box === 'sent' ? 'sender' : 'recipient';
-      const selectedConversations = filter(
-        this.props.conversations,
-        conv => conv[selection].id === this.props.currentUserId,
-      );
-      conversationDisplay = selectedConversations.map(
-        conv => <Tile key={conv.id} conversation={conv} />,
-      );
-    }
+    const selection = this.props.box === 'sent' ? 'sender' : 'recipient';
+    const conversationDisplay = this.props.conversations.filter(
+      conv => conv[selection].id === this.props.currentUserId,
+    ).map(
+      conv => <Tile key={conv.id} conversation={conv} />,
+    );
     return (
       <div className="mailbox">
         <header className="mailbox-header">

@@ -5,8 +5,8 @@ describe Api::ConversationsController, type: :controller do
   render_views
 
   describe 'index' do
+    let(:user) { create(:user) }
     let!(:conversations) { create_list(:conversation, Faker::Number.between(5, 10))}
-    let!(:user) { create(:user) }
     let!(:received_by_user) { create_list(:conversation, Faker::Number.between(1, 4), recipient: user) }
     let!(:sent_by_user) { create_list(:conversation, Faker::Number.between(1, 4), sender: user)}
     before do
