@@ -6,6 +6,7 @@ const mapStateToProps = ({ errors, conversations }) => ({
   errors,
   modalOpen: conversations.modalOpen,
   messageSuccess: conversations.messageSuccess,
+  offerModal: conversations.offerModal,
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -16,7 +16,7 @@ class ListingDetail extends React.Component {
     return (
       <section className="listingButtons">
         <button
-          onClick={this.props.toggleMessageModal}
+          onClick={this.props.openOfferModal}
           className="btn btn-square"
         >
             make offer
@@ -65,6 +65,7 @@ ListingDetail.propTypes = {
   clearListing: PropTypes.func.isRequired,
   toggleMessageModal: PropTypes.func.isRequired,
   currentUserId: PropTypes.number.isRequired,
+  openOfferModal: PropTypes.func.isRequired,
 };
 
 ListingDetail.defaultProps = {

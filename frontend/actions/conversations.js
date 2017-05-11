@@ -1,5 +1,5 @@
 import * as ApiConversationUtil from '../util/conversation_api';
-import receiveErrors from './errors';
+import { receiveErrors } from './errors';
 
 export const RECEIVE_CONVERSATIONS = 'RECEIVE_CONVERSATIONS';
 export const RECEIVE_CONVERSATION = 'RECEIVE_CONVERSATION';
@@ -8,7 +8,7 @@ export const TOGGLE_CONVERSATION = 'TOGGLE_CONVERSATION';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const TOGGLE_MESSAGE_MODAL = 'TOGGLE_MESSAGE_MODAL';
 export const RECEIVE_MESSAGE_SUCCESS = 'RECEIVE_MESSAGE_SUCCESS';
-export const CLEAR_MESSAGE_SUCCESS = 'CLEAR_MESSAGE_SUCCESS';
+export const OPEN_OFFER_MODAL = 'OPEN_OFFER_MODAL';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -39,12 +39,12 @@ export const receiveMessageSuccess = () => ({
   type: RECEIVE_MESSAGE_SUCCESS,
 });
 
-export const clearMessageSuccess = () => ({
-  type: CLEAR_MESSAGE_SUCCESS,
-});
-
 export const toggleMessageModal = () => ({
   type: TOGGLE_MESSAGE_MODAL,
+});
+
+export const openOfferModal = () => ({
+  type: OPEN_OFFER_MODAL,
 });
 
 export const fetchConversations = () => dispatch => (

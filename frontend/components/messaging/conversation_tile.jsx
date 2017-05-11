@@ -3,18 +3,30 @@ import PropTypes from 'prop-types';
 import ConversationDetail from './conversation_detail_container';
 import MessageForm from './message_form_container';
 
-const ConversationTile = ({ conversation, displayUser, toggleConversation, active, toggleMessageModal }) => {
+const ConversationTile = ({
+  conversation,
+  displayUser,
+  toggleConversation,
+  active,
+  toggleMessageModal,
+  openOfferModal,
+}) => {
   const user = conversation[displayUser].username;
   const offerContent = () => (
     <section>
-      <span>Offer: ${conversation.offer}</span>
-      <button className="btn btn-square">Counter</button>
+      <span className="margin-right-half-rem">Offer: ${conversation.offer}</span>
+      <button
+        className="btn btn-square margin-right-half-rem"
+        onClick={openOfferModal}
+      >
+        Counter
+      </button>
     </section>
   );
   const tileContents = () => {
     if (active === conversation.id) {
       return (
-        <div>
+        <div className="flex-center justify-around">
           {conversation.offer > 0 ? offerContent() : null}
           <button onClick={toggleMessageModal} className="btn btn-square">REPLY</button>
           <MessageForm
@@ -50,6 +62,7 @@ ConversationTile.propTypes = {
   toggleConversation: PropTypes.func.isRequired,
   active: PropTypes.number,
   toggleMessageModal: PropTypes.func.isRequired,
+  openOfferModal: PropTypes.func.isRequired,
 };
 
 ConversationTile.defaultProps = {

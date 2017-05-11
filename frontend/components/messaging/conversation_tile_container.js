@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleConversation, toggleMessageModal } from '../../actions/conversations';
+import { toggleConversation, toggleMessageModal, openOfferModal } from '../../actions/conversations';
 import ConversationTile from './conversation_tile';
 
 
@@ -11,6 +11,7 @@ const mapStateToProps = ({ conversations }) => ({
 const mapDispatchToProps = dispatch => ({
   toggleConversation: id => dispatch(toggleConversation(id)),
   toggleMessageModal: () => dispatch(toggleMessageModal()),
+  openOfferModal: () => dispatch(openOfferModal()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ConversationTile);

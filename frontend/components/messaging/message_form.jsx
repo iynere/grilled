@@ -31,20 +31,24 @@ class MessageForm extends React.Component {
       listing_id: this.props.listingId,
     };
     if (this.state.offer !== null) {
+      message.body = `New Offer: $${this.state.offer} ${this.state.body}`;
       message.offer = this.state.offer;
     }
     if (this.props.conversationId) {
       message.conversation_id = this.props.conversationId;
     }
     this.props.createMessage(message, this.props.fromListing).then(
-      () => { if (!this.props.messageSuccess) this.props.toggleMessageModal(); },
+      () => {
+        if (!this.props.messageSuccess) this.props.toggleMessageModal();
+        this.setState({ offer: null });
+      },
     );
   }
 
   render() {
     if (this.props.modalOpen) {
       return (
-        <div className="messageModal">
+        <div className="message-modal">
           <section>
             <button
               className="btn btn-square margin-right-half-rem margin-top-half-rem"
@@ -67,6 +71,19 @@ class MessageForm extends React.Component {
                 ) :
                 (
                   <form className="margin-top-1rem" onSubmit={this.handleSubmit}>
+                    {
+                      this.props.offerModal ? (
+                        <div className="form-group">
+                          <Errors errorsArray={this.props.errors.offer} />
+                          <label htmlFor="offer">Offer in USD</label>
+                          <input
+                            id="offer"
+                            onChange={this.update('offer')}
+                            type="number"
+                          />
+                        </div>
+                      ) : null
+                    }
                     <div className="form-group">
                       <Errors errorsArray={this.props.errors.body} />
                       <label htmlFor="body">
@@ -74,7 +91,6 @@ class MessageForm extends React.Component {
                       </label>
                       <input
                         placeholder="How's the burn?"
-                        className=""
                         onChange={this.update('body')}
                         type="text"
                         id="body"
@@ -99,6 +115,7 @@ class MessageForm extends React.Component {
 MessageForm.propTypes = {
   errors: PropTypes.shape({
     body: PropTypes.array,
+    offer: PropTypes.array,
   }).isRequired,
   listingId: PropTypes.number.isRequired,
   createMessage: PropTypes.func.isRequired,
@@ -107,6 +124,7 @@ MessageForm.propTypes = {
   modalOpen: PropTypes.bool.isRequired,
   fromListing: PropTypes.bool,
   messageSuccess: PropTypes.bool.isRequired,
+  offerModal: PropTypes.bool.isRequired,
 };
 
 MessageForm.defaultProps = {

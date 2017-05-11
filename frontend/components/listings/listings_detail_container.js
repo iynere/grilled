@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchListing, clearListing } from '../../actions/listings';
-import { toggleMessageModal } from '../../actions/conversations';
+import { toggleMessageModal, openOfferModal } from '../../actions/conversations';
 import ListingsDetail from './listings_detail';
 
 const mapStateToProps = ({ listings, session }) => ({
@@ -14,6 +14,7 @@ const mapDispatchToProps = (dispatch, { match }) => {
     fetchListing: () => dispatch(fetchListing(listingId)),
     clearListing: () => dispatch(clearListing()),
     toggleMessageModal: () => dispatch(toggleMessageModal()),
+    openOfferModal: () => dispatch(openOfferModal()),
   });
 };
 

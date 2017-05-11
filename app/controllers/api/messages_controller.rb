@@ -4,6 +4,7 @@ class Api::MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
+    @offer = message_params[:offer]
 
     if @message.save
       render :show
