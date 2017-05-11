@@ -29,7 +29,6 @@ class MessageForm extends React.Component {
     const message = {
       body: this.state.body,
       listing_id: this.props.listingId,
-      user_id: this.props.currentUserId,
     };
     if (this.state.offer !== null) {
       message.offer = this.state.offer;
@@ -86,7 +85,6 @@ MessageForm.propTypes = {
     body: PropTypes.array,
   }).isRequired,
   listingId: PropTypes.number.isRequired,
-  currentUserId: PropTypes.number.isRequired,
   createMessage: PropTypes.func.isRequired,
   conversationId: PropTypes.number,
   toggleMessageModal: PropTypes.func.isRequired,

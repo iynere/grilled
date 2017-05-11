@@ -4,9 +4,9 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :conversation
 
-  before_validation :ensure_conversation
+  before_validation :ensure_conversation, :update_offer
 
-  attr_reader :offer, :listing_id
+  attr_reader :offer, :listing_id, :user_id
 
   def listing_id=(listing_id)
     @listing_id = listing_id
@@ -18,17 +18,19 @@ class Message < ApplicationRecord
 
   private
   def ensure_conversation
-    conversation = self.conversation || Conversation.find_by(sender_id: self.user_id, listing_id: listing_id)
+    self.conversation ||= Conversation.find_by(sender_id: user_id, listing_id: listing_id)
 
-    if conversation.nil?
+    if self.conversation.nil? && listing_id
       recipient_id = Listing.find(listing_id).user_id
-      conversation = Conversation.new(sender_id: self.user_id, listing_id: listing_id, recipient_id: recipient_id)
-      conversation.save!
-    elsif conversation.offer != offer
-      conversation.offer = offer
-      conversation.save!
+      self.conversation = Conversation.new(sender_id: user_id, listing_id: listing_id, recipient_id: recipient_id)
+      self.conversation.save!
     end
+  end
 
-    self.conversation = conversation
+  def update_offer
+    if offer && self.conversation.offer != offer
+      self.conversation.offer = offer
+      self.conversation.save!
+    end
   end
 end

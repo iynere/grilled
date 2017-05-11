@@ -2,8 +2,7 @@ import { connect } from 'react-redux';
 import { createMessage, toggleMessageModal } from '../../actions/conversations';
 import MessageForm from './message_form';
 
-const mapStateToProps = ({ session, errors, conversations }) => ({
-  currentUserId: session.currentUser.id,
+const mapStateToProps = ({ errors, conversations }) => ({
   errors,
   modalOpen: conversations.modalOpen,
 });

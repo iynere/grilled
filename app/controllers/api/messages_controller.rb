@@ -1,8 +1,9 @@
 class Api::MessagesController < ApplicationController
   before_action :require_logged_in
-  
+
   def create
     @message = Message.new(message_params)
+    @message.user = current_user
 
     if @message.save
       render :show
@@ -14,6 +15,6 @@ class Api::MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body, :listing_id, :user_id, :offer, :conversation_id)
+    params.require(:message).permit(:body, :listing_id, :offer, :conversation_id)
   end
 end
