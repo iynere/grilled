@@ -10,7 +10,16 @@ class ConversationDetail extends React.Component {
   render() {
     if (this.props.messages.length < 1) return <div className="loading" />;
     const messageTiles = this.props.messages
-      .map(message => <MessageTile key={message.id} age={message.age} body={message.body} user={message.username} />);
+      .map(
+        message => (
+          <MessageTile
+            key={message.id}
+            age={message.age}
+            body={message.body}
+            user={message.username}
+          />
+        ),
+      );
     return (
       <ul className="messages">
         {messageTiles}

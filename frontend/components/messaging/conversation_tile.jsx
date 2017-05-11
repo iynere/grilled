@@ -8,7 +8,6 @@ const ConversationTile = ({ conversation, displayUser, toggleConversation, activ
   const offerContent = () => (
     <section>
       <span>Offer: ${conversation.offer}</span>
-      <button className="btn btn-square">Accept</button>
       <button className="btn btn-square">Counter</button>
     </section>
   );

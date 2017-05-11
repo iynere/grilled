@@ -15,7 +15,6 @@ class ListingDetail extends React.Component {
     if (this.props.listing.user_id === this.props.currentUserId) return null;
     return (
       <section className="listingButtons">
-        <button className="btn btn-square">buy now</button>
         <button
           onClick={this.props.toggleMessageModal}
           className="btn btn-square"
