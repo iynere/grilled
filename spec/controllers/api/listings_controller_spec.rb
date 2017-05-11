@@ -5,12 +5,12 @@ describe Api::ListingsController, type: :controller do
   render_views
 
   describe 'index' do
-    let!(:listings) { create_list(:listing, 4)}
+    let!(:listings) { create_list(:listing, Faker::Number.between(1, 10))}
     before do
       get :index, format: :json
     end
     it 'returns the expected listings' do
-      expect(JSON.parse(response.body).length).to eq(4)
+      expect(JSON.parse(response.body).length).to eq(listings.length)
     end
   end
   describe 'show' do
