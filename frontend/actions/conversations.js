@@ -8,6 +8,7 @@ export const SWITCH_BOX = 'SWITCH_BOX';
 export const TOGGLE_CONVERSATION = 'TOGGLE_CONVERSATION';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const TOGGLE_MESSAGE_MODAL = 'TOGGLE_MESSAGE_MODAL';
+export const RECEIVE_MESSAGE_SUCCESS = 'RECEIVE_MESSAGE_SUCCESS';
 
 const receiveConversations = conversations => ({
   type: RECEIVE_CONVERSATIONS,
@@ -39,6 +40,10 @@ export const receiveMessage = message => ({
   message,
 });
 
+export const receiveMessageSuccess = () => ({
+  type: RECEIVE_MESSAGE_SUCCESS,
+});
+
 export const toggleMessageModal = () => ({
   type: TOGGLE_MESSAGE_MODAL,
 });
@@ -53,10 +58,10 @@ export const fetchConversation = id => dispatch => (
     .then(data => dispatch(receiveConversation(data)))
 );
 
-export const createMessage = message => dispatch => (
+export const createMessage = (message, fromListing) => dispatch => (
   ApiConversationUtil.createMessage(message)
     .then(
-      data => dispatch(receiveMessage(data)),
+      data => dispatch(fromListing ? receiveMessageSuccess : receiveMessage(data)),
       err => dispatch(receiveErrors(err)),
     )
 );

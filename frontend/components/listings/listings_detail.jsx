@@ -46,7 +46,7 @@ class ListingDetail extends React.Component {
         </section>
         {this.renderButtons()}
         <span>Sold by {this.props.listing.username}</span>
-        <MessageForm listingId={this.props.listing.id} />
+        <MessageForm listingId={this.props.listing.id} fromListing />
       </div>
     );
   }

@@ -36,7 +36,7 @@ class MessageForm extends React.Component {
     if (this.props.conversationId) {
       message.conversation_id = this.props.conversationId;
     }
-    this.props.createMessage(message).then(
+    this.props.createMessage(message, this.props.fromListing).then(
       () => this.props.toggleMessageModal(),
     );
   }
@@ -89,10 +89,12 @@ MessageForm.propTypes = {
   conversationId: PropTypes.number,
   toggleMessageModal: PropTypes.func.isRequired,
   modalOpen: PropTypes.bool.isRequired,
+  fromListing: PropTypes.bool,
 };
 
 MessageForm.defaultProps = {
   conversationId: null,
+  fromListing: false,
 };
 
 export default MessageForm;

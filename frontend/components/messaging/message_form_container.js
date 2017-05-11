@@ -8,7 +8,7 @@ const mapStateToProps = ({ errors, conversations }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  createMessage: message => dispatch(createMessage(message)),
+  createMessage: (message, fromListing) => dispatch(createMessage(message, fromListing)),
   toggleMessageModal: () => dispatch(toggleMessageModal()),
 });
 
