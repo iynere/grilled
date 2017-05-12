@@ -4,10 +4,10 @@
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "main": "index.js",
   "directories": {
-    "test": "mocha_tests"
+    "test": "test"
   },
   "scripts": {
-    "test": "mocha mocha_tests --compilers js:babel-register --require ./mocha_tests/spec_helper.js --recursive --recursive"
+    "test": "mocha --compilers js:babel-register --require ./test/spec_helper.js --recursive --recursive"
   },
   "author": "",
   "license": "ISC",
@@ -36,7 +36,10 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.9.0",
+    "jsdom": "10.1.0",
+    "jsdom-global": "3.0.2",
     "mocha": "^3.3.0",
+    "mocha-jsdom": "^1.1.0",
     "nock": "^9.0.13",
     "node-httpclient": "0.0.2",
     "react-addons-test-utils": "^15.5.1",

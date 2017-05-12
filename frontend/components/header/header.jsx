@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Header = ({ currentUser, logout }) => {
@@ -16,14 +17,23 @@ const Header = ({ currentUser, logout }) => {
           <h1>GRILLED</h1>
         </Link>
       </section>
-      <section>
-        { currentUser === null ? "High-End BBQ Marketplace" : UserActions() }
+      <section id="menu">
+        { currentUser === null ? 'High-End BBQ Marketplace' : UserActions() }
       </section>
     </header>
 
   );
 };
 
+Header.propTypes = {
+  currentUser: PropTypes.shape({
+    username: PropTypes.string,
+  }),
+  logout: PropTypes.func.isRequired,
+};
 
+Header.defaultProps = {
+  currentUser: null,
+};
 
 export default Header;

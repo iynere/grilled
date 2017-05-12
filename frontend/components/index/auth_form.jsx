@@ -27,9 +27,7 @@ class AuthForm extends React.Component {
     if (this.isSignup()) {
       user.email = this.state.email;
     }
-    this.submitHandler()(user).then(() => {
-      this.props.toggleModal();
-    });
+    this.submitHandler()(user);
   }
 
   update(field) {

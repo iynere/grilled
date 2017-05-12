@@ -15,6 +15,14 @@ Open localhost:3000 in your browser and get GRILLED.
 
 If you don't have webpack installed, you may need to install it globally.
 
+You can run tests with these commands:
+```
+bundle exec rspec
+npm test
+```
+
+The version of JSDOM in package.json requires node v6 or higher.
+
 ## Rails :fire: Back End
 
 ### Tables

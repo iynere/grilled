@@ -12,7 +12,9 @@ const Index = ({ currentUser }) => {
     );
   }
   return (
-    <AuthForm />
+    <div className="auth">
+      <AuthForm />
+    </div>
   );
 };
 
