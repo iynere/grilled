@@ -26,9 +26,12 @@ const ConversationTile = ({
   const tileContents = () => {
     if (active === conversation.id) {
       return (
-        <div className="flex-center justify-around">
-          {conversation.offer > 0 ? offerContent() : null}
-          <button onClick={toggleMessageModal} className="btn btn-square">REPLY</button>
+        <div className="flex-center justify-between full-width">
+          <span className="align-self-center">{conversation.listing.name}</span>
+          <div className="flex-center">
+            {conversation.offer > 0 ? offerContent() : null}
+            <button onClick={toggleMessageModal} className="btn btn-square">REPLY</button>
+          </div>
           <MessageForm
             conversationId={conversation.id}
             listingId={conversation.listing.id}
@@ -37,13 +40,22 @@ const ConversationTile = ({
       );
     }
     return (
-      <strong>{user}</strong>
+      <div className="row full-width">
+        <div className="ternary">
+          <span>{conversation.listing.name}</span>
+        </div>
+        <div className="ternary">
+          {conversation.offer > 0 ? <span>offer: ${conversation.offer}</span> : null }
+        </div>
+        <div className="ternary">
+          <strong>{user}</strong>
+        </div>
+      </div>
     );
   };
   return (
     <li className={active === conversation.id ? 'conversation active' : 'conversation'}>
       <div role="button" onClick={() => toggleConversation(conversation.id)}>
-        <span>{conversation.listing.name}</span>
         {tileContents()}
       </div>
       {active === conversation.id ? <ConversationDetail id={conversation.id} /> : null}

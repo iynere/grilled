@@ -24,4 +24,11 @@ end
 
 5.times do
   Message.create!({body: 'I have questions about these.', user_id: Faker::Number.between(2,4), listing_id: 3})
+  Message.create!({body: Faker::Hipster.sentence, user_id: 4, listing_id: Faker::Number.between(1, 6)})
 end
+
+Message.create!([
+  {body: 'Gimme The Bag!', user_id: 2, listing_id: 10, offer: 65},
+  {body: 'Siq Grill. gotta have it!', user_id: 2, listing_id: 1, offer: 175},
+  {body: 'I need to know if the shrimp will be cooked using propane or charcoal.', user_id: 1, listing_id: 5},
+])
