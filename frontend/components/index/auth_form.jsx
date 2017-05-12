@@ -137,7 +137,7 @@ class AuthForm extends React.Component {
 }
 
 AuthForm.propTypes = {
-  formType: PropTypes.string.isRequired,
+  formType: PropTypes.string,
   setAuthFormType: PropTypes.func.isRequired,
   errors: PropTypes.shape({
     username: PropTypes.array,
@@ -146,6 +146,10 @@ AuthForm.propTypes = {
   }).isRequired,
   login: PropTypes.func.isRequired,
   signup: PropTypes.func.isRequired,
+};
+
+AuthForm.defaultProps = {
+  formType: 'login',
 };
 
 export default AuthForm;
