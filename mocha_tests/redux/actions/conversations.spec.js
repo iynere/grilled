@@ -13,7 +13,6 @@ describe('async actions for conversations', () => {
 
   it('creates RECEIVE_CONVERSATIONS when fetchConversations finishes', () => {
     nock('http://localhost/')
-      .log(console.log)
       .get('/api/conversations')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 
@@ -30,7 +29,6 @@ describe('async actions for conversations', () => {
 
   it('creates RECEIVE_CONVERSATION when fetchConversation finishes', () => {
     nock('http://localhost/')
-      .log(console.log)
       .get('/api/conversations/1')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 
@@ -47,7 +45,6 @@ describe('async actions for conversations', () => {
 
   it('creates RECEIVE_MESSAGE when message created', () => {
     nock('http://localhost/')
-      .log(console.log)
       .post('/api/messages/')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 

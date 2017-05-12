@@ -13,7 +13,6 @@ describe('async actions for listings', () => {
 
   it('creates RECEIVE_LISTINGS when fetchListings finishes', () => {
     nock('http://localhost/')
-      .log(console.log)
       .get('/api/listings')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 
@@ -29,7 +28,6 @@ describe('async actions for listings', () => {
   })
   it('creates RECEIVE_LISTING when fetchListing finishes', () => {
     nock('http://localhost/')
-      .log(console.log)
       .get('/api/listings/1')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 

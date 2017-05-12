@@ -13,12 +13,10 @@ describe('async actions for session', () => {
 
   it('creates RECEIVE_CURRENT_USER when user login or signup succeeds', () => {
     nock('http://localhost/')
-      .log(console.log)
       .post('/api/session')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 
     nock('http://localhost/')
-      .log(console.log)
       .post('/api/session')
       .reply(200, {id: 1, username: 'pr0p4n3'});
 
