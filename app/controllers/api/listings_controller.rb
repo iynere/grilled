@@ -1,6 +1,6 @@
 class Api::ListingsController < ApplicationController
   def index
-    @listings = Listing.all
+    @listings = Listing.where.not(user: current_user)
   end
 
   def show
