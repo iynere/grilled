@@ -6,6 +6,37 @@ import * as actions from '../../../frontend/actions/conversations';
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
+describe('sync actions for conversations', () => {
+  it('toggleMessageModal should create an action to toggle the message modal', () => {
+    const expectedAction = {
+      type: actions.TOGGLE_MESSAGE_MODAL,
+    }
+    expect(actions.toggleMessageModal()).to.eql(expectedAction)
+  })
+  it('openOfferModal should create an action to open the offer modal', () => {
+    const expectedAction = {
+      type: actions.OPEN_OFFER_MODAL,
+    }
+    expect(actions.openOfferModal()).to.eql(expectedAction)
+  })
+  it('switchBox should create an action to switch to specified mailbox', () => {
+    const box = 'received';
+    const expectedAction = {
+      type: actions.SWITCH_BOX,
+      box,
+    }
+    expect(actions.switchBox(box)).to.eql(expectedAction)
+  })
+  it('toggleConversation should create an action to toggle conversation detail display', () => {
+    const id = 616
+    const expectedAction = {
+      type: actions.TOGGLE_CONVERSATION,
+      id,
+    }
+    expect(actions.toggleConversation(id)).to.eql(expectedAction)
+  })
+})
+
 describe('async actions for conversations', () => {
   afterEach(() => {
     nock.cleanAll()
