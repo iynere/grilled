@@ -26,8 +26,6 @@ const setup = () => {
 
 describe('<Header />', () => {
 
-  jsdom();
-
   it('should render expected text inside #menu section when logged out', () => {
     const { notLoggedInWrapper } = setup();
     expect(notLoggedInWrapper.find('#menu').text()).to.eql('High-End BBQ Marketplace');

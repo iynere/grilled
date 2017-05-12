@@ -26,8 +26,6 @@ const setup = () => {
 
 describe('<index />', () => {
 
-  jsdom();
-
   it('should render AuthForm when not logged in', () => {
     const { notLoggedInWrapper } = setup();
     expect(notLoggedInWrapper.find('AuthForm')).to.exist;
