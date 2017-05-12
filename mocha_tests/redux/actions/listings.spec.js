@@ -6,6 +6,15 @@ import * as actions from '../../../frontend/actions/listings';
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
+describe('sync actions for listings', () => {
+  it('clearListing should create an action to clear the current listing form store', () => {
+    const expectedAction = {
+      type: actions.CLEAR_LISTING,
+    }
+    expect(actions.clearListing()).to.eql(expectedAction);
+  })
+})
+
 describe('async actions for listings', () => {
   afterEach(() => {
     nock.cleanAll()

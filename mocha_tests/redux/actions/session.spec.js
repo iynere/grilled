@@ -6,6 +6,17 @@ import * as actions from '../../../frontend/actions/session';
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
+describe('sync actions for session', () => {
+  it('setAuthFormType should create an action to switch between authForm types', () => {
+    const formType = 'signup'
+    const expectedAction = {
+      type: actions.SET_AUTH_FORM_TYPE,
+      formType,
+    }
+    expect(actions.setAuthFormType(formType)).to.eql(expectedAction)
+  })
+})
+
 describe('async actions for session', () => {
   afterEach(() => {
     nock.cleanAll()
