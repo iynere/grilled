@@ -3,7 +3,7 @@
 ### Luxury BBQ Marketplace
 
 ## Setup
-After Cloning
+After Cloning, making sure you have Postgres running.
 ```
 bundle install
 npm install
