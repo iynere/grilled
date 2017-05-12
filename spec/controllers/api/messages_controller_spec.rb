@@ -51,7 +51,7 @@ describe Api::MessagesController, type: :controller do
       before do
         @message = {
           body: message_body,
-          listing_id: create(:listing, user: current_user).id,
+          listing_id: create(:listing).id,
         }
         allow(controller).to receive(:current_user).and_return(current_user)
         post :create, params: { message: @message }

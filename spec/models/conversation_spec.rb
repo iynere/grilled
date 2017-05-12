@@ -13,6 +13,14 @@ describe Conversation, type: :model do
       subject { create(:conversation_with_offer) }
       it{ should validate_numericality_of(:offer) }
     end
+    context 'with same sender and recipient' do
+      let(:user) { create(:user)}
+      let(:listing) { create(:listing)}
+      it 'should fail' do
+        expect{Conversation.create!({sender: user, recipient: user, listing: listing})}
+          .to raise_error(ActiveRecord::RecordInvalid)
+      end
+    end
   end
   describe 'associations' do
     it{ should belong_to(:sender) }
