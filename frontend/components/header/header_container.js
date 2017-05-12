@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session';
 import Header from './header';
 
-const mapStateToProps = ({ session }) => ({
+export const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser,
 });
 

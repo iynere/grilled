@@ -2,30 +2,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const ListingTile = ({ listing }) => {
-  if (listing === null) {
-    return (
-      <div className="loading" />
-    );
-  }
-  return (
-    <Link to={`/listings/${listing.id}`} className="listing-tile">
-      <section>
-        <h4>
-          {listing.name}
-        </h4>
-        <div>
-          <span>
-            {listing.brand}
-          </span>
-          <strong>
-            ${listing.price}
-          </strong>
-        </div>
-      </section>
-    </Link>
-  );
-};
+const ListingTile = ({ listing }) => (
+  <Link to={`/listings/${listing.id}`} className="listing-tile">
+    <section>
+      <h4>
+        {listing.name}
+      </h4>
+      <div>
+        <span>
+          {listing.brand}
+        </span>
+        <strong>
+          ${listing.price}
+        </strong>
+      </div>
+    </section>
+  </Link>
+);
 
 ListingTile.propTypes = {
   listing: PropTypes.shape({

@@ -31,6 +31,7 @@
     "chai": "^3.5.0",
     "chai-enzyme": "^0.6.1",
     "enzyme": "^2.8.2",
+    "enzyme-redux": "^0.1.6",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
@@ -39,11 +40,11 @@
     "jsdom": "10.1.0",
     "jsdom-global": "3.0.2",
     "mocha": "^3.3.0",
-    "mocha-jsdom": "^1.1.0",
     "nock": "^9.0.13",
     "node-httpclient": "0.0.2",
     "react-addons-test-utils": "^15.5.1",
     "redux-mock-store": "^1.2.3",
+    "redux-test-utils": "^0.1.2",
     "sinon": "^2.2.0"
   }
 }

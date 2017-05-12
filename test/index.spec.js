@@ -24,7 +24,7 @@ const setup = () => {
   }
 };
 
-describe('<index />', () => {
+describe('<Index />', () => {
 
   it('should render AuthForm when not logged in', () => {
     const { notLoggedInWrapper } = setup();

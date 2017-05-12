@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Index from '../frontend/components/messaging/message_tile';
+import MessageTile from '../frontend/components/messaging/message_tile';
 
 const setup = () => {
   const props = {
@@ -10,7 +10,7 @@ const setup = () => {
   };
 
 
-  const wrapper = shallow(<Index {...props} />)
+  const wrapper = shallow(<MessageTile {...props} />)
 
   return {
     props,
@@ -24,6 +24,6 @@ describe('<MessageTile />', () => {
     const { wrapper, props } = setup();
     expect(wrapper.find('strong').text()).to.eq(props.user);
     expect(wrapper.find('p').text()).to.eq(props.body);
-    expect(wrapper.find('span').text()).to.eq(`${props.age} Ago`);
+    expect(wrapper.find('span').text()).to.include(props.age);
   })
 });
