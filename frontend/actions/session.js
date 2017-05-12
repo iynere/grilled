@@ -21,7 +21,11 @@ export const login = user => dispatch => (
 
 export const logout = () => dispatch => (
   APISessionUtil.logout()
-    .then(() => dispatch(receiveCurrentUser(null)), err => dispatch(receiveErrors(err)))
+    .then(() => {
+      window.location.replace('/');
+      return dispatch(receiveCurrentUser(null));
+    },
+    err => dispatch(receiveErrors(err)))
 );
 
 export const signup = user => dispatch => (
