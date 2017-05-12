@@ -2,6 +2,19 @@
 :fire::fire::fire::fire::fire::fire:
 ### Luxury BBQ Marketplace
 
+## Setup
+After Cloning
+```
+bundle install
+npm install
+bundle exec rake db:setup
+webpack -w
+bundle exec rails s
+```
+Open localhost:3000 in your browser and get GRILLED.
+
+If you don't have webpack installed, you may need to install it globally.
+
 ## Rails :fire: Back End
 
 ### Tables
