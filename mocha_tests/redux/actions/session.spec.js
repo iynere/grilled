@@ -6,7 +6,7 @@ import * as actions from '../../../frontend/actions/session';
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);
 
-describe('async actions', () => {
+describe('async actions for session', () => {
   afterEach(() => {
     nock.cleanAll()
   })
