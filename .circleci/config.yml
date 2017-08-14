@@ -42,5 +42,5 @@ workflows:
   
   build_and_test:
     jobs:
-      - build_test_ruby
       - build_test_node
+      - build_test_ruby
