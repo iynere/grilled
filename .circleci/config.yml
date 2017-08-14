@@ -31,6 +31,10 @@ jobs:
     steps:
       - restore_cache:
           key: grilled-source-v1
+          
+      - run: | 
+          apk update
+          apk add git openssh
       
       - checkout
       
