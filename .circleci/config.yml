@@ -53,7 +53,7 @@ jobs:
             --color \
             --require spec_helper \
             --format documentation spec \
-            circleci tests split --split-by=filesize <(circleci tests glob "spec/models/*_spec.rb" "spec/controllers/*_spec.rb")
+            $(circleci tests glob "spec/models/*_spec.rb" "spec/controllers/*_spec.rb" | circleci tests split --split-by=filesize)
       
   node:
     parallelism: 2
