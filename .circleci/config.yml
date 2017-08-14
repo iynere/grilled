@@ -34,11 +34,11 @@ jobs:
       - run: |
           mkdir -p config
           echo 'test:
-            database: circle_ruby_test
+            database: circle_test
             adapter: postgresql
             encoding: unicode
             pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-            username: ubuntu
+            username: root
             host: localhost
           ' > config/database.yml
           
