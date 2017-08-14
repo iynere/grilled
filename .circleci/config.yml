@@ -10,9 +10,9 @@ jobs:
       - restore_cache:
           key: grilled-source-v1
           
-      # - run: | 
-      #     apk update
-      #     apk add git openssh
+      - run: | 
+          apt-get update
+          apt-get install git openssh
       
       - checkout
       
@@ -32,10 +32,9 @@ jobs:
       - restore_cache:
           key: grilled-source-v1
           
-      # - run: | 
-      #     apk update
-      #     apk add git openssh ca-certificates
-      #     update-ca-certificates
+      - run: | 
+          apt-get update
+          apt-get install git openssh
       
       - checkout
       
