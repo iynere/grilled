@@ -12,7 +12,7 @@ jobs:
           
       - run: | 
           apt-get update
-          apt-get install -y git openssh-client make libpq-dev
+          apt-get install -y git openssh-client build-essential libpq-dev
       
       - checkout
       
