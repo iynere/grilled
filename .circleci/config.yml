@@ -4,16 +4,12 @@ jobs:
   ruby:
     parallelism: 2
     docker:
-      - image: ruby:2.4.0-slim
+      - image: iynere/grilled-ruby:1
       - image: circleci/postgres:10-alpine-ram
       
     steps:
       - restore_cache:
           key: grilled-source-v2
-          
-      - run: | 
-          apt-get update
-          apt-get install -y git openssh-client build-essential libpq-dev nodejs
       
       - checkout
       
@@ -58,17 +54,13 @@ jobs:
   node:
     parallelism: 2
     docker:
-      - image: node:8.3.0-slim
+      - image: iynere/grilled-node:1
       
     steps:
       - restore_cache:
           key: grilled-source-v2
           
-      - run: | 
-          apt-get update
-          apt-get install -y git openssh-client
-      
-      - checkout
+     - checkout
       
       - save_cache:
           key: grilled-source-v2
