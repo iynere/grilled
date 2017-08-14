@@ -53,13 +53,12 @@ jobs:
             --color \
             --require spec_helper \
             --format documentation \
-            $(circleci tests glob "spec/models/*_spec.rb" "spec/controllers/*_spec.rb" | circleci tests split --split-by=filesize)
+            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
       
   node:
     parallelism: 2
     docker:
       - image: node:8.3.0-slim
-      - image: circleci/postgres:10-alpine-ram
       
     steps:
       - restore_cache:
