@@ -10,7 +10,7 @@ jobs:
       - restore_cache:
           key: grilled-source-v1
           
-      - run: sudo apk add git
+      - run: apk add git
       
       - checkout
       
