@@ -10,7 +10,9 @@ jobs:
       - restore_cache:
           key: grilled-source-v1
           
-      - run: apk add git
+      - run: | 
+          apk update
+          apk add git
       
       - checkout
       
@@ -44,5 +46,5 @@ workflows:
   
   build_and_test:
     jobs:
-      - build_test_node
+      # - build_test_node
       - build_test_ruby
