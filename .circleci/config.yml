@@ -3,7 +3,7 @@ version: 2
 jobs:
   build_test_ruby:
     docker:
-      - image: ruby:2.4.1-alpine
+      - image: ruby:2.4.1-slim
       - image: circleci/postgres:10-alpine-ram
       
     steps:
@@ -25,7 +25,7 @@ jobs:
       
   build_test_node:
     docker:
-      - image: node:7.10.1-alpine
+      - image: node:8.3.0-slim
       - image: circleci/postgres:10-alpine-ram
       
     steps:
