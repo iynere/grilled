@@ -30,6 +30,17 @@ jobs:
           key: grilled-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+            
+      - run: |
+          mkdir -p config
+          echo 'test:
+            database: circle_ruby_test
+            adapter: postgresql
+            encoding: unicode
+            pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+            username: ubuntu
+            host: localhost
+          ' > config/database.yml
       
   node:
     docker:
@@ -60,6 +71,8 @@ jobs:
           key: grilled-npm-v2-{{ checksum "package.json" }}
           paths:
             - node_modules
+            
+      - run: npm test
       
 workflows:
   version: 2
