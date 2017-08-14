@@ -89,7 +89,7 @@ jobs:
             
       - run: |
           npm test \
-          $(circleci tests glob "test/**/*.spec.js" | circleci tests split --split-by=timings --timings-type=filename)
+          $(circleci tests glob "test/**/*spec.js" | circleci tests split --split-by=timings --timings-type=filename)
       
 workflows:
   version: 2
