@@ -46,6 +46,8 @@ jobs:
           export RAILS_ENV="test"
           export RACK_ENV="test"
           bundle exec rake db:create db:schema:load --trace
+          
+      - run: bundle exec rspec --color --require spec_helper --format documentation spec
       
   node:
     docker:
