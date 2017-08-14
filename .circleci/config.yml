@@ -2,6 +2,7 @@ version: 2
 
 jobs:
   ruby:
+    parallelism: 2
     docker:
       - image: ruby:2.4.0-slim
       - image: circleci/postgres:10-alpine-ram
@@ -50,6 +51,7 @@ jobs:
       - run: bundle exec rspec --color --require spec_helper --format documentation spec
       
   node:
+    parallelism: 2
     docker:
       - image: node:8.3.0-slim
       - image: circleci/postgres:10-alpine-ram
