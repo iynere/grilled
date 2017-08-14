@@ -52,7 +52,7 @@ jobs:
           bundle exec rspec \
             --color \
             --require spec_helper \
-            --format documentation spec \
+            --format documentation \
             $(circleci tests glob "spec/models/*_spec.rb" "spec/controllers/*_spec.rb" | circleci tests split --split-by=filesize)
       
   node:
