@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build_test_ruby:
+  ruby:
     docker:
       - image: ruby:2.4.0-slim
       - image: circleci/postgres:10-alpine-ram
@@ -20,10 +20,18 @@ jobs:
           key: grilled-source-v1
           paths:
             - ".git"
+            
+      - restore_cache:
+          key: grilled-bundle-v1-{{ checksum "Gemfile.lock" }}
       
       - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       
-  build_test_node:
+      - save_cache:
+          key: grilled-bundle-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ~/vendor/bundle
+      
+  node:
     docker:
       - image: node:8.3.0-slim
       - image: circleci/postgres:10-alpine-ram
@@ -42,13 +50,21 @@ jobs:
           key: grilled-source-v1
           paths:
             - ".git"
+            
+      - restore_cache:
+          key: grilled-npm-v1-{{ checksum "package.json" }}
       
       - run: npm install
+      
+      - save_cache:
+          key: grilled-npm-v1-{{ checksum "package.json" }}
+          paths:
+            - ~/node_modules
       
 workflows:
   version: 2
   
   build_and_test:
     jobs:
-      - build_test_node
-      - build_test_ruby
+      - ruby
+      - node
