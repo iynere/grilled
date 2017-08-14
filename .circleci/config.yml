@@ -41,6 +41,11 @@ jobs:
             username: ubuntu
             host: localhost
           ' > config/database.yml
+          
+      - run: |
+          export RAILS_ENV="test"
+          export RACK_ENV="test"
+          bundle exec rake db:create db:schema:load --trace
       
   node:
     docker:
