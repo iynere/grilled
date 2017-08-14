@@ -12,7 +12,7 @@ jobs:
           
       - run: | 
           apt-get update
-          apt-get install git openssh
+          apt-get install git openssh-client
       
       - checkout
       
@@ -34,7 +34,7 @@ jobs:
           
       - run: | 
           apt-get update
-          apt-get install git openssh
+          apt-get install git openssh-client
       
       - checkout
       
