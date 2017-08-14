@@ -54,8 +54,6 @@ jobs:
             --color \
             --require spec_helper \
             --format documentation spec \
-            --format RspecJunitFormatter \
-            --out test-reports/rspec.xml \
             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings --timings-type=filename)
       
   node:

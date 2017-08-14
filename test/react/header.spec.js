@@ -4,8 +4,8 @@ import { shallowWithStore } from 'enzyme-redux';
 import { createMockStore } from 'redux-test-utils';
 import { connect } from 'react-redux';
 
-import Header from '../frontend/components/header/header';
-import { mapStateToProps } from '../frontend/components/header/header_container';
+import Header from '../../frontend/components/header/header';
+import { mapStateToProps } from '../../frontend/components/header/header_container';
 
 const setup = () => {
   const propsLoggedIn = {

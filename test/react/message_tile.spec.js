@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import MessageTile from '../frontend/components/messaging/message_tile';
+import MessageTile from '../../frontend/components/messaging/message_tile';
 
 const setup = () => {
   const props = {

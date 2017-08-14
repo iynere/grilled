@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Index from '../frontend/components/index/index';
+import Index from '../../frontend/components/index/index';
 
 const setup = () => {
   const propsLoggedIn = {

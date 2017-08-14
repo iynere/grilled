@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ListingTile from '../frontend/components/listings/listing_tile';
+import ListingTile from '../../frontend/components/listings/listing_tile';
 
 const setup = () => {
   const props = {
