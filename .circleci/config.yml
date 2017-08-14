@@ -53,7 +53,7 @@ jobs:
             --color \
             --require spec_helper \
             --format documentation spec \
-            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
+            $(circleci tests glob "spec/models/*_spec.rb" "spec/controllers/*_spec.rb" | circleci tests split)
       
   node:
     parallelism: 2
