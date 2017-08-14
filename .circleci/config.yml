@@ -60,7 +60,7 @@ jobs:
       - restore_cache:
           key: grilled-source-v2
           
-     - checkout
+      - checkout
       
       - save_cache:
           key: grilled-source-v2
@@ -79,7 +79,7 @@ jobs:
             
       - run: |
           npm test \
-          $(circleci tests glob "test/**/*spec.js" | circleci tests split)
+            $(circleci tests glob "test/**/*spec.js" | circleci tests split)
       
 workflows:
   version: 2
