@@ -49,12 +49,11 @@ jobs:
           bundle exec rake db:create db:schema:load --trace
           
       - run: |
-          mkdir -p test-reports
           bundle exec rspec \
             --color \
             --require spec_helper \
             --format documentation spec \
-            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings --timings-type=filename)
+            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
       
   node:
     parallelism: 2
@@ -89,7 +88,7 @@ jobs:
             
       - run: |
           npm test \
-          $(circleci tests glob "test/**/*spec.js" | circleci tests split --split-by=timings --timings-type=filename)
+          $(circleci tests glob "test/**/*spec.js" | circleci tests split)
       
 workflows:
   version: 2
