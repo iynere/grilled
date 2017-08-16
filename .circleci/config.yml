@@ -11,17 +11,17 @@ jobs:
       - restore_cache:
           key: grilled-source-v2
       
+      - run:
+          name: install deps
+          command: |
+            sudo apt-get install -y git openssh-client build-essential libpq-dev
+      
       - checkout
       
       - save_cache:
           key: grilled-source-v2
           paths:
             - ".git"
-            
-      - run:
-          name: install deps
-          command: |
-            sudo apt-get install -y git openssh-client build-essential libpq-dev
             
       - restore_cache:
           key: grilled-bundle-v2-{{ checksum "Gemfile.lock" }}
@@ -64,6 +64,11 @@ jobs:
     steps:
       - restore_cache:
           key: grilled-source-v2
+
+      - run:
+          name: install deps
+          command: |
+            sudo apt-get install -y git openssh-client
           
       - checkout
       
@@ -71,11 +76,6 @@ jobs:
           key: grilled-source-v2
           paths:
             - ".git"
-            
-      - run:
-          name: install deps
-          command: |
-            sudo apt-get install -y git openssh-client
             
       - restore_cache:
           key: grilled-npm-v2-{{ checksum "package.json" }}
