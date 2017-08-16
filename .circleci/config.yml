@@ -14,7 +14,7 @@ jobs:
       - run:
           name: install deps
           command: |
-            sudo apt-get install -y git openssh-client build-essential libpq-dev
+            apt-get install -y git openssh-client build-essential libpq-dev
       
       - checkout
       
@@ -68,7 +68,7 @@ jobs:
       - run:
           name: install deps
           command: |
-            sudo apt-get install -y git openssh-client
+            apt-get install -y git openssh-client
           
       - checkout
       
