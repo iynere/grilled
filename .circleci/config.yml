@@ -4,7 +4,7 @@ jobs:
   ruby:
     parallelism: 2
     docker:
-      - image: iynere/grilled-ruby:1
+      - image: ruby:2.4.0-slim
       - image: circleci/postgres:10-alpine-ram
       
     steps:
@@ -17,6 +17,11 @@ jobs:
           key: grilled-source-v2
           paths:
             - ".git"
+            
+      - run:
+          name: install deps
+          command: |
+            sudo apt-get install -y git openssh-client build-essential libpq-dev
             
       - restore_cache:
           key: grilled-bundle-v2-{{ checksum "Gemfile.lock" }}
@@ -54,7 +59,7 @@ jobs:
   node:
     parallelism: 2
     docker:
-      - image: iynere/grilled-node:1
+      - image: node:8.3.0-slim
       
     steps:
       - restore_cache:
@@ -66,6 +71,11 @@ jobs:
           key: grilled-source-v2
           paths:
             - ".git"
+            
+      - run:
+          name: install deps
+          command: |
+            sudo apt-get install -y git openssh-client
             
       - restore_cache:
           key: grilled-npm-v2-{{ checksum "package.json" }}
