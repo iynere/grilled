@@ -54,7 +54,7 @@ jobs:
             --color \
             --require spec_helper \
             --format documentation \
-            $(circleci tests glob "$HOME/spec/**/*_spec.rb" | circleci tests split --split-by=filesize)
+            $(circleci tests glob "$HOME/project/spec/**/*_spec.rb" | circleci tests split --split-by=filesize)
       
       - restore_cache:
           key: grilled-source-v3
@@ -84,4 +84,4 @@ jobs:
             
       - run: |
           npm test \
-            $(circleci tests glob "$HOME/test/**/*spec.js" | circleci tests split --split-by=filesize)
+            $(circleci tests glob "$HOME/project/test/**/*spec.js" | circleci tests split --split-by=filesize)
