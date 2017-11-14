@@ -54,16 +54,16 @@ jobs:
             --color \
             --require spec_helper \
             --format documentation \
-            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
+            $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=filesize)
       
       - restore_cache:
           key: grilled-source-v3
 
-      - run:
-          name: install deps
-          command: |
-            apt-get update
-            apt-get install -y git openssh-client
+      # - run:
+      #     name: install deps
+      #     command: |
+      #       apt-get update
+      #       apt-get install -y git openssh-client
           
       - checkout
       
@@ -84,4 +84,4 @@ jobs:
             
       - run: |
           npm test \
-            $(circleci tests glob "test/**/*spec.js" | circleci tests split)
+            $(circleci tests glob "test/**/*spec.js" | circleci tests split --split-by=filesize)
