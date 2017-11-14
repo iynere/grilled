@@ -8,28 +8,28 @@ jobs:
       
     steps:
       - restore_cache:
-          key: grilled-source-v2
+          key: grilled-source-v3
       
-      - run:
-          name: install deps
-          command: |
-            apt-get update
-            apt-get install -y git openssh-client build-essential libpq-dev
+      # - run:
+      #     name: install deps
+      #     command: |
+      #       apt-get update
+      #       apt-get install -y git openssh-client build-essential libpq-dev
       
       - checkout
       
       - save_cache:
-          key: grilled-source-v2
+          key: grilled-source-v3
           paths:
             - ".git"
             
       - restore_cache:
-          key: grilled-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: grilled-bundle-v3-{{ checksum "Gemfile.lock" }}
       
       - run: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3
       
       - save_cache:
-          key: grilled-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: grilled-bundle-v3-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
             
@@ -57,7 +57,7 @@ jobs:
             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split)
       
       - restore_cache:
-          key: grilled-source-v2
+          key: grilled-source-v3
 
       - run:
           name: install deps
@@ -68,17 +68,17 @@ jobs:
       - checkout
       
       - save_cache:
-          key: grilled-source-v2
+          key: grilled-source-v3
           paths:
             - ".git"
             
       - restore_cache:
-          key: grilled-npm-v2-{{ checksum "package.json" }}
+          key: grilled-npm-v3-{{ checksum "package.json" }}
       
       - run: npm install
       
       - save_cache:
-          key: grilled-npm-v2-{{ checksum "package.json" }}
+          key: grilled-npm-v3-{{ checksum "package.json" }}
           paths:
             - node_modules
             
